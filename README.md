@@ -52,7 +52,7 @@ After changing a service name or guide title, run `npm run og` so its social ima
 
 ## First-visit experience
 
-Once per browser session, visitors see a short logo intro that fills from left to right (`index.html`), then a welcome popup (`src/components/WelcomeModal.jsx`). The intro is plain CSS, so it never waits for JavaScript. The popup renders only on the client, so no indexable content sits behind it. On phones it opens as a bottom sheet, which keeps the page visible above it.
+Once per browser session, visitors see a short logo intro that fills from left to right (`index.html`), then a welcome popup (`src/components/WelcomeModal.jsx`). The intro is plain CSS, so it never waits for JavaScript. The popup renders only on the client, so no indexable content sits behind it.
 
 To change the popup's services, edit `CHIPS` in `WelcomeModal.jsx`. To change its timing, edit the delay in the same file.
 

@@ -1,22 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Phone, X } from 'lucide-react';
+import { Building2, Compass, FileText, Percent, Receipt, Scale, Store, X } from 'lucide-react';
 import { Link } from '../lib/router';
 import { Wordmark, WhatsAppIcon } from './brand';
 import { ext } from './ui';
-import { dueDates, hero } from '../content/home';
+import { hero } from '../content/home';
 import { categoryByCat } from '../content/services';
-import { SITE, tel } from '../content/site';
-import { ordinal, relativeDays, upcoming } from '../hooks/useStatutory';
+import { SITE, wa } from '../content/site';
 
 const SEEN_KEY = 'saifi_welcome';
+
 const CHIPS = [
-  ['gst', 'GST'],
-  ['itr', 'ITR'],
-  ['inc', 'Incorporation'],
-  ['tds', 'TDS'],
-  ['msme', 'MSME / Udyam'],
-  ['legal', 'Legal'],
-].map(([cat, label]) => ({ ...categoryByCat(cat), label }));
+  ['gst', 'GST Filing', Receipt],
+  ['itr', 'ITR Filing', FileText],
+  ['inc', 'Incorporation', Building2],
+  ['tds', 'TDS Returns', Percent],
+  ['msme', 'MSME / Udyam', Store],
+  ['legal', 'Legal Services', Scale],
+].map(([cat, label, Icon]) => ({ path: categoryByCat(cat).path, label, Icon }));
+
+const KEYWORDS = ['GST', 'ITR', 'TDS', 'MSME', 'Trademark', 'FSSAI'];
 
 const readSeen = () => {
   try {
@@ -41,7 +43,6 @@ const markSeen = () => {
  */
 export default function WelcomeModal() {
   const [open, setOpen] = useState(false);
-  const [next, setNext] = useState(null);
   const sheetRef = useRef(null);
 
   useEffect(() => {
@@ -50,7 +51,6 @@ export default function WelcomeModal() {
     const timer = window.setTimeout(() => {
       const tag = document.activeElement && document.activeElement.tagName;
       if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
-      setNext(upcoming(new Date())[0]);
       setOpen(true);
       markSeen();
     }, reduced ? 800 : 2100);
@@ -92,66 +92,59 @@ export default function WelcomeModal() {
   if (!open) return null;
 
   const close = () => setOpen(false);
-  const due = next && dueDates.items.find((d) => d.id === next.item.id);
 
   return (
     <div className="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
       <div className="welcome__scrim" onClick={close} aria-hidden="true" />
-      <div className="welcome__sheet" ref={sheetRef} tabIndex={-1}>
-        <div className="welcome__in">
-          <div className="welcome__head">
-            <Wordmark />
-            <button type="button" className="welcome__close" aria-label="Close" onClick={close}>
-              <X size={20} strokeWidth={1.5} />
-            </button>
-          </div>
+      <div className="welcome__card" ref={sheetRef} tabIndex={-1}>
+        <div className="welcome__strip" aria-hidden="true" />
 
+        <div className="welcome__head">
+          <Wordmark sub={false} />
+          <button type="button" className="welcome__close" aria-label="Close" onClick={close}>
+            <X size={20} strokeWidth={1.75} />
+          </button>
+        </div>
+
+        <div className="welcome__body">
           <h2 id="welcome-title" className="welcome__title">
             Welcome to <span>{SITE.name}</span>
           </h2>
           <p className="welcome__sub">{hero.eyebrow}</p>
 
-          {next && (
-            <a
-              className="welcome__due"
-              href={due ? due.href : '/compliance-calendar/'}
-              {...(due ? ext : {})}
-            >
-              <span className="welcome__duedate">{ordinal(next.date.getDate())}</span>
-              <span className="welcome__duetext">
-                <strong>{next.item.title}</strong>
-                <span>{relativeDays(next.days)}</span>
-              </span>
-              <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
-            </a>
-          )}
-
           <ul className="welcome__chips">
-            {CHIPS.map((c) => (
-              <li key={c.cat}>
-                <Link to={c.path} onClick={close}>
-                  <strong>{c.label}</strong>
-                  <span>{c.from.replace('Starting from', 'From')}</span>
+            {CHIPS.map(({ path, label, Icon }) => (
+              <li key={path}>
+                <Link to={path} onClick={close}>
+                  <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+                  <span>{label}</span>
                 </Link>
               </li>
             ))}
           </ul>
 
           <div className="welcome__actions">
-            <a className="welcome__wa" href={hero.primary.href} {...ext} onClick={close}>
+            <Link to="/services/" className="welcome__explore" onClick={close}>
+              <Compass size={18} strokeWidth={1.75} aria-hidden="true" />
+              Explore Services
+            </Link>
+            <a
+              className="welcome__wa"
+              href={wa('Hi Saifi Tax Solutions, I would like to know about your services.')}
+              onClick={close}
+              {...ext}
+            >
               <WhatsAppIcon size={18} />
-              {hero.primary.label}
-            </a>
-            <a className="welcome__call" href={tel} aria-label={`Call ${SITE.phoneDisplay}`} onClick={close}>
-              <Phone size={17} strokeWidth={1.75} aria-hidden="true" />
-              <span>{SITE.phoneDisplay}</span>
+              WhatsApp Us
             </a>
           </div>
-
-          <Link to="/services/" className="welcome__all" onClick={close}>
-            Explore all 120+ services
-          </Link>
         </div>
+
+        <ul className="welcome__keys" aria-label="Key services">
+          {KEYWORDS.map((k) => (
+            <li key={k}>{k}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
