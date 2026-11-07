@@ -58,7 +58,7 @@ export default function DueDatesSection({ headingTag: Tag = 'h2' }) {
             <Eyebrow>{dueDates.eyebrow}</Eyebrow>
             <Tag id="due-title" className="h h--3xl">
               {dueDates.titleA}{' '}
-              <span className="h__accent h__accent--cobalt">{today ? monthName(today) : dueDates.fallbackMonth}</span>{' '}
+              <span className="h__accent h__accent--grad">{today ? monthName(today) : dueDates.fallbackMonth}</span>{' '}
               {dueDates.titleB}
             </Tag>
             <p className="lede">{dueDates.body}</p>

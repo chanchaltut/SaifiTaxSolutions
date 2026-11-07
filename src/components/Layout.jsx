@@ -4,10 +4,12 @@ import Header from './Header';
 import Footer from './Footer';
 import { WhatsAppIcon } from './brand';
 import { ext } from './ui';
-import { wa } from '../content/site';
+import { Phone } from 'lucide-react';
+import { tel, wa } from '../content/site';
 import { guides } from '../content/guides';
 import { syncHead } from '../seo/head';
 import { getMeta } from '../seo/meta';
+import WelcomeModal from './WelcomeModal';
 
 /** Matches the page-aware WhatsApp greeting of the original site. */
 function floatMessage(pathname, title) {
@@ -89,6 +91,17 @@ export default function Layout({ children }) {
         </span>
         <span className="wafloat__btn"><WhatsAppIcon size={26} /></span>
       </a>
+      <WelcomeModal />
+      <div className="mobilebar">
+        <a href={tel}>
+          <Phone size={17} strokeWidth={1.75} aria-hidden="true" />
+          Call Now
+        </a>
+        <a href={wa(floatMessage(pathname, meta.title))} {...ext}>
+          <WhatsAppIcon size={18} />
+          Chat on WhatsApp
+        </a>
+      </div>
     </>
   );
 }

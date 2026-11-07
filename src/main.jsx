@@ -1,6 +1,7 @@
 import { StrictMode, startTransition } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
+import { initAnalytics } from './lib/analytics';
 import './styles/index.css';
 
 const root = document.getElementById('root');
@@ -13,3 +14,5 @@ const tree = (
 /* Hydrating in a transition yields to the browser, so long pages stay responsive while they load. */
 if (root.firstElementChild) startTransition(() => hydrateRoot(root, tree));
 else createRoot(root).render(tree);
+
+initAnalytics();

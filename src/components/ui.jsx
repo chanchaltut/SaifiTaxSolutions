@@ -39,7 +39,7 @@ export function TextLink({ href, to, children, tone, className = '' }) {
 }
 
 /** Section heading whose second phrase takes the accent colour. */
-export function Heading({ a, b, as: Tag = 'h2', size = '3xl', id, accent = 'cobalt' }) {
+export function Heading({ a, b, as: Tag = 'h2', size = '3xl', id, accent = 'grad' }) {
   return (
     <Tag id={id} className={`h h--${size}`}>
       {a}
@@ -96,16 +96,16 @@ export function PageHead({ crumbs, eyebrow, title, titleB, body, children, tone 
   return (
     <header className={`phead phead--${tone}`}>
       <div className="wrap">
-        <Crumbs items={crumbs} tone={tone === 'cobalt' || tone === 'ink' ? 'inv' : undefined} />
+        <Crumbs items={crumbs} tone={tone === 'ink' ? 'inv' : undefined} />
         <div className="phead__grid">
           <div className="phead__main">
-            {eyebrow && <Eyebrow tone={tone === 'cobalt' || tone === 'ink' ? 'inv' : undefined}>{eyebrow}</Eyebrow>}
+            {eyebrow && <Eyebrow tone={tone === 'ink' ? 'inv' : undefined}>{eyebrow}</Eyebrow>}
             <h1 className="h h--4xl">
               {title}
               {titleB && (
                 <>
                   {' '}
-                  <span className={`h__accent h__accent--${tone === 'cobalt' || tone === 'ink' ? 'sky' : 'cobalt'}`}>{titleB}</span>
+                  <span className={`h__accent h__accent--${tone === 'ink' ? 'stamp' : 'grad'}`}>{titleB}</span>
                 </>
               )}
             </h1>

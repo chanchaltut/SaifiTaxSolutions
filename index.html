@@ -8,10 +8,80 @@
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#1437D1" />
-    <script>document.documentElement.classList.add('js')</script>
+    <meta name="theme-color" content="#070b14" />
+    <style>
+      html { background: #070b14; }
+      #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: #070b14;
+        pointer-events: none;
+        animation: intro-out 0.35s ease 1.35s forwards;
+      }
+      .intro__logo { position: relative; display: block; line-height: 0; }
+      .intro__logo svg { display: block; width: min(400px, 78vw); height: auto; }
+      .intro__ghost { opacity: 0.16; }
+      .intro__fill {
+        position: absolute;
+        inset: 0;
+        clip-path: inset(0 100% 0 0);
+        animation: intro-fill 1.05s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
+      }
+      .intro__bar {
+        display: block;
+        width: min(400px, 78vw);
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .intro__bar i {
+        display: block;
+        height: 100%;
+        background: #38bdf8;
+        box-shadow: 0 0 14px #38bdf8;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: intro-bar 1.05s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
+      }
+      @keyframes intro-fill { to { clip-path: inset(0 0 0 0); } }
+      @keyframes intro-bar { to { transform: scaleX(1); } }
+      @keyframes intro-out { to { opacity: 0; visibility: hidden; } }
+      .intro-seen #intro { display: none; }
+      @media (prefers-reduced-motion: reduce) { #intro { display: none; } }
+    </style>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add('js');
+        try {
+          if (sessionStorage.getItem('saifi_intro')) root.classList.add('intro-seen');
+          else sessionStorage.setItem('saifi_intro', '1');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
+    <div id="intro" aria-hidden="true">
+      <span class="intro__logo">
+        <svg class="intro__ghost" viewBox="0 0 440 64" fill="none"><use href="#intro-art" /></svg>
+        <svg class="intro__fill" viewBox="0 0 440 64" fill="none" style="color: #f4f7fb"><use href="#intro-art" /></svg>
+      </span>
+      <span class="intro__bar"><i></i></span>
+      <svg width="0" height="0" style="position: absolute">
+        <defs>
+          <g id="intro-art">
+            <path d="M0 0H48L64 16V64H0Z" fill="#38bdf8" />
+            <path d="M31 15H13V32H28V49H11M13 15H51M39.5 15V49" stroke="#04070e" stroke-width="6.5" />
+            <text x="82" y="44" fill="currentColor" font-family="'Host Grotesk Variable','Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="600" letter-spacing="-1.4">Saifi Tax Solutions</text>
+          </g>
+        </defs>
+      </svg>
+    </div>
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

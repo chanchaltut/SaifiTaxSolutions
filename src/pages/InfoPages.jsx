@@ -5,6 +5,7 @@ import { WhatsAppIcon } from '../components/brand';
 import { FinalCta, NoticeCard, Process, Reviews } from '../components/Sections';
 import DueDatesSection, { RadarStrip } from '../components/DueDates';
 import { Stats } from '../components/Hero';
+import EnquiryForm, { OfficeMap } from '../components/EnquiryForm';
 import { faqs, faqText, noticeDesk, talkToExpert } from '../content/home';
 import { guides } from '../content/guides';
 import { categories } from '../content/services';
@@ -168,7 +169,15 @@ export function ContactPage() {
           </address>
         </div>
       </section>
-      <section className="section section--tight tone-paper" aria-labelledby="contact-online">
+      <section className="section section--tight tone-paper" aria-labelledby="enquiry-title">
+        <div className="wrap">
+          <div className="enqgrid">
+            <EnquiryForm />
+            <OfficeMap />
+          </div>
+        </div>
+      </section>
+      <section className="section section--tight" aria-labelledby="contact-online">
         <div className="wrap">
           <div className="split split--faq">
             <div className="split__head">

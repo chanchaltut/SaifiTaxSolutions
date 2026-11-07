@@ -100,7 +100,7 @@ export function ServiceCategoryPage() {
             <div className="svcbody__side">
               <p className="svcbody__code" aria-hidden="true">{c.code}</p>
               <AnswerBox label={c.name}>
-                {c.desc} {c.from}, 100% online across India.
+                {c.desc} {c.from}, delivered 100% online across India from IT Park, Dehradun.
               </AnswerBox>
               <p className="note">{SERVICE_NOTE}</p>
             </div>

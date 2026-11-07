@@ -10,6 +10,7 @@ const CORE = [
   { to: '/services/gst/', label: 'GST Registration & Filing' },
   { to: '/services/incorporation/', label: 'Company Incorporation' },
   { to: '/services/', label: 'All 12 Service Categories' },
+  { to: '/tax-consultant-dehradun/', label: 'Tax Consultant in Dehradun' },
 ];
 
 const ENGINES = [
@@ -26,7 +27,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__brand">
-            <Wordmark tone="white" sub={false} />
+            <Wordmark sub={false} />
             <p className="footer__name">SAIFI TAX SOLUTIONS</p>
             <p className="footer__blurb">{SITE.blurb}</p>
           </div>

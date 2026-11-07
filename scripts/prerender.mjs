@@ -28,10 +28,19 @@ const preload = fontFile
   ? `<link rel="preload" href="/assets/${fontFile}" as="font" type="font/woff2" crossorigin />`
   : '';
 
+/* Optional ownership tags, set as environment variables in the Vercel project. */
+const verification = [
+  ['google-site-verification', process.env.VITE_GOOGLE_SITE_VERIFICATION],
+  ['msvalidate.01', process.env.VITE_BING_SITE_VERIFICATION],
+]
+  .filter(([, value]) => value)
+  .map(([name, value]) => `<meta name="${name}" content="${value}" />`)
+  .join('\n    ');
+
 const page = (route) => {
   const { html, head } = render(route);
   return template
-    .replace('<!--app-head-->', `${preload}\n    ${head}`)
+    .replace('<!--app-head-->', `${preload}\n    ${verification}\n    ${head}`)
     .replace('<!--app-html-->', html);
 };
 

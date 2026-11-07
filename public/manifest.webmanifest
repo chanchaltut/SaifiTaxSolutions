@@ -4,8 +4,8 @@
   "description": "Expert tax and compliance services across India.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1437D1",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

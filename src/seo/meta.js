@@ -12,6 +12,7 @@ import {
 } from '../content/home';
 import { tools, toolsHub } from '../content/tools';
 import { serviceFaqs } from './serviceFaqs';
+import { local } from '../content/local';
 
 const U = SITE.url;
 const abs = (p) => `${U}${p}`;
@@ -30,6 +31,7 @@ export const ROUTES = [
   { path: '/', priority: 1.0, changefreq: 'weekly' },
   { path: '/services/', priority: 0.95, changefreq: 'monthly' },
   ...categories.map((c) => ({ path: c.path, priority: 0.9, changefreq: 'monthly' })),
+  { path: '/tax-consultant-dehradun/', priority: 0.95, changefreq: 'monthly' },
   { path: '/fee-schedule/', priority: 0.85, changefreq: 'monthly' },
   { path: '/tools/', priority: 0.8, changefreq: 'monthly' },
   ...tools.map((t) => ({ path: t.path, priority: 0.8, changefreq: 'monthly' })),
@@ -99,7 +101,19 @@ const orgCore = {
   priceRange,
   currenciesAccepted: 'INR',
   address,
+  geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
   hasMap: SITE.mapUrl,
+  ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
+  ...(SITE.hours.length
+    ? {
+        openingHoursSpecification: SITE.hours.map((h) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: h.days,
+          opens: h.opens,
+          closes: h.closes,
+        })),
+      }
+    : {}),
   areaServed: [
     { '@type': 'City', name: 'Dehradun' },
     { '@type': 'State', name: 'Uttarakhand' },
@@ -587,6 +601,27 @@ guides.forEach((g) => {
   });
 }
 
+{
+  const path = local.path;
+  PAGES[path] = page(path, {
+    title: local.metaTitle,
+    description: local.metaDescription,
+    image: '/og/tax-consultant-dehradun.png',
+    imageAlt: 'Saifi Tax Solutions, tax consultant at IT Park, Sahastradhara Road, Dehradun.',
+    jsonLd: graph(
+      orgFull,
+      website,
+      webPage('WebPage', path, local.metaTitle, local.metaDescription, {
+        about: orgRef,
+        mainEntity: orgRef,
+        contentLocation: { '@type': 'City', name: 'Dehradun' },
+      }),
+      faqPage(path, local.faqs),
+      breadcrumb([['Home', '/'], [local.crumb, path]]),
+    ),
+  });
+}
+
 const NOT_FOUND = page('/404/', {
   title: 'Page not found | Saifi Tax Solutions',
   description: 'This page has moved. Find every service, fee and guide from Saifi Tax Solutions.',
@@ -620,6 +655,10 @@ export function buildLlms() {
     `- Pricing: all prices are "Starting from"; government and third-party fees are charged separately at actuals`,
     `- ITR turnaround: typically 4 to 24 hours of receiving complete documents`,
     `- New GST registration: filed within 24 hours; GSTIN allotment generally 3 to 5 working days`,
+    '',
+    '## Local',
+    '',
+    `- [Tax Consultant in Dehradun](${abs(local.path)}): ${local.metaDescription}`,
     '',
     '## Services and starting fees',
     '',

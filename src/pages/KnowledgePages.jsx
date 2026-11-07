@@ -123,7 +123,7 @@ export function GuidePage() {
           <p className="guide__badge">{g.badge}</p>
           <h1 className="guide__title" itemProp="headline">
             <span>{g.titleA}</span>{' '}
-            <span className="h__accent h__accent--cobalt">{g.titleB}</span>
+            <span className="h__accent h__accent--grad">{g.titleB}</span>
           </h1>
           <div className="guide__intro">
             <p className="lede" itemProp="description">{g.intro}</p>

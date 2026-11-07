@@ -2,12 +2,8 @@
  * The Saifi Tax mark: an S and a T sharing one crossbar, set on a filing sheet
  * with its corner cut. Drawn as geometry so it never depends on a font.
  */
-export function Mark({ size = 40, tone = 'cobalt', className }) {
-  const palette = {
-    cobalt: { sheet: 'var(--cobalt)', glyph: '#fff' },
-    white: { sheet: '#fff', glyph: 'var(--cobalt)' },
-    ink: { sheet: 'var(--ink)', glyph: '#fff' },
-  }[tone];
+export function Mark({ size = 40, className }) {
+  const palette = { sheet: 'var(--accent)', glyph: 'var(--ink)' };
   return (
     <svg
       width={size}
@@ -30,10 +26,10 @@ export function Mark({ size = 40, tone = 'cobalt', className }) {
   );
 }
 
-export function Wordmark({ tone = 'cobalt', sub = true }) {
+export function Wordmark({ sub = true }) {
   return (
-    <span className={`wordmark wordmark--${tone === 'white' ? 'inv' : 'std'}`}>
-      <Mark tone={tone} size={38} />
+    <span className="wordmark">
+      <Mark size={38} />
       <span className="wordmark__text">
         <span className="wordmark__name">Saifi Tax</span>
         {sub && <span className="wordmark__sub">Solutions &amp; Advisory</span>}

@@ -23,11 +23,22 @@ Configured for Vercel through `vercel.json`: build command `npm run build`, outp
 
 Do not add a catch-all rewrite to `index.html`. Every route is a prerendered file, so refreshing any page already works, and a catch-all would turn real 404s into soft 404s that hurt search rankings. Unknown URLs get `404.html` with a true 404 status.
 
+## Environment variables (optional)
+
+Set these in the Vercel project. Nothing is loaded when they are empty.
+
+| Variable | Purpose |
+| --- | --- |
+| `VITE_GA_ID` | Google Analytics 4 ID. Calls, WhatsApp clicks and enquiries are sent as `generate_lead` events |
+| `VITE_GOOGLE_SITE_VERIFICATION` | Search Console ownership tag |
+| `VITE_BING_SITE_VERIFICATION` | Bing Webmaster Tools ownership tag, which also feeds Copilot |
+
 ## Where to edit things
 
 | To change | Edit |
 | --- | --- |
-| Phone, email, address, footer credit | `src/content/site.js` |
+| Phone, email, address, map pin, opening hours, social profiles, footer credit | `src/content/site.js` |
+| Dehradun landing page copy and FAQs | `src/content/local.js` |
 | Service names and fees | `src/content/services.raw.json` |
 | Service page titles and URLs | `src/content/services.js` |
 | Home page copy, plans, reviews, due dates, FAQs, fee schedule | `src/content/home.js` |
@@ -38,6 +49,12 @@ Do not add a catch-all rewrite to `index.html`. Every route is a prerendered fil
 | Colours, type scale, spacing | `src/styles/tokens.css` |
 
 After changing a service name or guide title, run `npm run og` so its social image matches.
+
+## First-visit experience
+
+Once per browser session, visitors see a short logo intro that fills from left to right (`index.html`), then a welcome popup (`src/components/WelcomeModal.jsx`). The intro is plain CSS, so it never waits for JavaScript. The popup renders only on the client, so no indexable content sits behind it. On phones it opens as a bottom sheet, which keeps the page visible above it.
+
+To change the popup's services, edit `CHIPS` in `WelcomeModal.jsx`. To change its timing, edit the delay in the same file.
 
 ## Page structure
 

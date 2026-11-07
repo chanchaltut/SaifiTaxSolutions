@@ -294,7 +294,7 @@ export function CheckerWidget() {
 
 export function CheckerSection() {
   return (
-    <section id="saifi-tax-quiz" className="section quiz tone-cobalt" aria-labelledby="quiz-title">
+    <section id="saifi-tax-quiz" className="section quiz tone-blue" aria-labelledby="quiz-title">
       <div className="wrap">
         <div className="split">
           <div className="split__head" data-reveal>

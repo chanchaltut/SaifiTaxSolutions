@@ -18,6 +18,15 @@ export const SITE = {
     countryCode: 'IN',
     full: 'IT Park, Sahastradhara Road, Dehradun, Uttarakhand, India - 248001',
   },
+  /* Approximate pin for IT Park, Sahastradhara Road. Replace with the Google Business Profile pin. */
+  geo: { lat: 30.3647, lng: 78.0874 },
+  /* Fill these in when available; structured data picks them up automatically.
+     sameAs: ['https://g.page/...', 'https://www.facebook.com/...']
+     hours: [{ days: ['Monday', 'Tuesday'], opens: '10:00', closes: '19:00' }] */
+  sameAs: [],
+  hours: [],
+  mapEmbed:
+    'https://www.google.com/maps?q=IT+Park%2C+Sahastradhara+Road%2C+Dehradun%2C+Uttarakhand+248001&output=embed',
   mapUrl:
     'https://www.google.com/maps/search/?api=1&query=IT+Park%2C+Sahastradhara+Road%2C+Dehradun%2C+Uttarakhand+248001',
   blurb:

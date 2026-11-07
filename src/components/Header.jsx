@@ -26,6 +26,9 @@ export default function Header() {
   const [mega, setMega] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const megaRef = useRef(null);
+  const drawerRef = useRef(null);
+  const closeRef = useRef(null);
+  const closeDrawer = () => setDrawer(false);
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -33,10 +36,39 @@ export default function Header() {
     setDrawer(false);
   }, [pathname, hash]);
 
+  /* While the menu is open: lock page scroll, move focus into it, and keep Tab inside it. */
   useEffect(() => {
-    document.body.style.overflow = drawer ? 'hidden' : '';
+    if (!drawer) return undefined;
+    const root = document.documentElement;
+    const previousFocus = document.activeElement;
+    root.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+
+    const trapTab = (e) => {
+      if (e.key !== 'Tab' || !drawerRef.current) return;
+      const items = drawerRef.current.querySelectorAll('a[href], button');
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 1181px)');
+    const onResize = () => { if (desktop.matches) setDrawer(false); };
+    window.addEventListener('keydown', trapTab);
+    desktop.addEventListener('change', onResize);
+
     return () => {
+      root.style.overflow = '';
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', trapTab);
+      desktop.removeEventListener('change', onResize);
+      if (previousFocus && previousFocus.focus) previousFocus.focus({ preventScroll: true });
     };
   }, [drawer]);
 
@@ -112,12 +144,12 @@ export default function Header() {
             <button
               type="button"
               className="header__burger"
-              aria-label={drawer ? 'Close menu' : 'Open menu'}
+              aria-label="Open menu"
               aria-expanded={drawer}
               aria-controls="mobile-menu"
-              onClick={() => setDrawer((v) => !v)}
+              onClick={() => setDrawer(true)}
             >
-              {drawer ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+              <Menu size={24} strokeWidth={1.5} />
             </button>
           </div>
 
@@ -152,8 +184,16 @@ export default function Header() {
       </header>
 
       {drawer && (
-        <div id="mobile-menu" className="drawer" role="dialog" aria-modal="true" aria-label="Menu">
-          <nav aria-label="Mobile">
+        <div id="mobile-menu" ref={drawerRef} className="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+          <div className="drawer__head">
+            <Link to="/" className="header__logo" aria-label={`${SITE.name} home`} onClick={closeDrawer}>
+              <Wordmark />
+            </Link>
+            <button type="button" ref={closeRef} className="drawer__close" aria-label="Close menu" onClick={closeDrawer}>
+              <X size={24} strokeWidth={1.5} />
+            </button>
+          </div>
+          <nav className="drawer__body" aria-label="Mobile" onClick={(e) => { if (e.target.closest('a')) closeDrawer(); }}>
             <ul className="drawer__primary">
               <li><Link to="/services/">Services</Link></li>
               {NAV.map((n) => (
@@ -169,11 +209,14 @@ export default function Header() {
             </ul>
           </nav>
           <div className="drawer__foot">
-            <a href={talkToExpert.href} className="btn btn--blue btn--full" {...ext}>
-              <span className="btn__label">{talkToExpert.label}</span>
-              <span className="btn__icon"><WhatsAppIcon size={18} /></span>
+            <a href={tel} className="drawer__call">
+              <Phone size={18} strokeWidth={1.75} aria-hidden="true" />
+              <span>{SITE.phoneDisplay}</span>
             </a>
-            <a href={tel} className="drawer__tel">{SITE.phoneDisplay}</a>
+            <a href={talkToExpert.href} className="drawer__wa" {...ext}>
+              <WhatsAppIcon size={18} />
+              <span>{talkToExpert.label}</span>
+            </a>
           </div>
         </div>
       )}

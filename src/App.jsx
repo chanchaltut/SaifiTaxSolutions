@@ -5,6 +5,7 @@ import { ServicesPage, ServiceCategoryPage, FeeSchedulePage } from './pages/Serv
 import { ToolsHubPage, ToolPage } from './pages/ToolPages';
 import { AboutPage, CalendarPage, ContactPage, FaqPage, NoticeDeskPage, NotFoundPage } from './pages/InfoPages';
 import { GuidePage, KnowledgeHubPage } from './pages/KnowledgePages';
+import LocalPage from './pages/LocalPage';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" component={Home} />
         <Route path="/services" component={ServicesPage} />
         <Route path="/services/:slug" component={ServiceCategoryPage} />
+        <Route path="/tax-consultant-dehradun" component={LocalPage} />
         <Route path="/fee-schedule" component={FeeSchedulePage} />
         <Route path="/tools" component={ToolsHubPage} />
         <Route path="/tools/gst-calculator"><ToolPage id="gst" /></Route>

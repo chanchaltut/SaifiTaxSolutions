@@ -9,30 +9,35 @@
 }
 
 :root {
-  /* Colour: one confident cobalt, a deep ink, and a statutory vermilion
-     reserved strictly for notices and deadlines. */
-  --cobalt: #1437d1;
-  --cobalt-deep: #0e2aa8;
-  --cobalt-bright: #2b50f0;
-  --ink: #070f2b;
-  --ink-2: #101a42;
-  --ink-3: #1b2758;
-  --sky: #a9bcff;
-  --sky-soft: #d7e0ff;
-  --paper: #f3f5fb;
-  --paper-2: #e8ecf8;
-  --white: #ffffff;
-  --text: #070f2b;
-  --text-2: #464f72;
-  --text-3: #5d6688;
-  --line: #d8ddeb;
-  --line-strong: #070f2b;
-  --line-inv: rgba(255, 255, 255, 0.18);
-  --text-inv-2: #c3cbe6;
-  --text-inv-3: #8e98c0;
+  color-scheme: dark;
+
+  /* The client's identity: midnight navy with a luminous sky blue.
+     --accent is for type and lines on dark; --fill is for solid blocks carrying white type. */
+  --bg: #070b14;
+  --surface: #0d1322;
+  --surface-2: #131b30;
+  --surface-3: #1b2540;
+  --deep: #04070e;
+  --accent: #38bdf8;
+  --accent-2: #7dd3fc;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  --fill: #0a6fe0;
+  --fill-deep: #0757b3;
+  --ink: #04070e;
+  --sky: #7dd3fc;
+  --sky-soft: #dcf0fe;
+  --text: #f4f7fb;
+  --text-2: #aab7cc;
+  --text-3: #8290a8;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.26);
+  --line-inv: rgba(255, 255, 255, 0.2);
+  --text-inv-2: #c9d3e4;
+  --text-inv-3: #8f9db5;
   --stamp: #d63a17;
-  --stamp-soft: #ff7a5c;
+  --stamp-soft: #ff8a70;
   --wa: #25d366;
+  --grad: linear-gradient(92deg, #38bdf8 0%, #bae6fd 52%, #a5b4fc 100%);
 
   /* Type */
   --font: 'Saifi Hyphen', 'Host Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
