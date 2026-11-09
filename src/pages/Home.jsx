@@ -1,57 +1,39 @@
-import Hero, { Stats, Ticker } from '../components/Hero';
-import Discovery from '../components/Discovery';
-import DueDatesSection from '../components/DueDates';
-import {
-  FaqSection,
-  FinalCta,
-  HubTeaser,
-  Licences,
-  NoticeDesk,
-  Plans,
-  Process,
-  Reviews,
-  ServiceIndex,
-  Verticals,
-} from '../components/Sections';
+import Hero, { StatBand } from '../components/Hero';
+import OurServices from '../components/OurServices';
+import DueDatesSection, { ComplianceRadar } from '../components/DueDates';
+import Certificates from '../components/Certificates';
+import { FaqSection, Licences, NoticeDesk, Plans, Process, Reviews, Verticals } from '../components/Sections';
 import { CheckerSection, EstimatorSection } from '../components/Tools';
 
 /**
- * Sequenced to the AIDA model:
+ * Follows the arrangement of the client's original site, with the
+ * services marquee in the header:
  *
- * ATTENTION  Hero promise, live statutory countdown, proof numbers.
- * INTEREST   "What applies to me?" Setup Engine, practice verticals, full service index.
- * DESIRE     How painless it is, who already trusts it, the plans, and what it saves.
- * ACTION     Urgent triggers (notices, due dates), objections answered, then one clear ask.
+ * Hero → Our Services → Compliance Radar → Full-Lifecycle Business Governance
+ * → Certificate Preview → ITR & Tax Checker → Compliance Plans → Reviews
+ * → Numbers → How It Works → Notice Desk → Due Dates → Licences
+ * → Presumptive Estimator → FAQ.
+ *
+ * The Knowledge Hub lives in the header, not on this page.
  */
 export default function Home() {
   return (
     <>
-      {/* ATTENTION */}
       <Hero />
-      <Ticker />
-      <section className="statband" aria-label="Saifi Tax Solutions in numbers">
-        <div className="wrap"><Stats /></div>
-      </section>
-
-      {/* INTEREST */}
-      <Discovery />
+      <OurServices />
+      <ComplianceRadar />
       <Verticals />
-      <ServiceIndex />
-
-      {/* DESIRE */}
-      <Process />
-      <Reviews />
-      <Plans />
+      <Certificates />
       <CheckerSection />
-      <EstimatorSection />
-
-      {/* ACTION */}
+      <Plans />
+      <Reviews />
+      <StatBand />
+      <Process />
       <NoticeDesk />
       <DueDatesSection />
       <Licences />
+      <EstimatorSection />
       <FaqSection />
-      <HubTeaser />
-      <FinalCta />
     </>
   );
 }

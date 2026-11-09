@@ -1,22 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from '../lib/router';
-import { ChevronDown, Menu, X, Phone, MapPin } from 'lucide-react';
+import { BookOpen, ChevronDown, Menu, X, Phone, MapPin } from 'lucide-react';
 import { Wordmark, WhatsAppIcon } from './brand';
 import { ext } from './ui';
 import { SITE, tel } from '../content/site';
 import { statutoryAlert, talkToExpert } from '../content/home';
+import { Ticker } from './Hero';
 import { categories, SERVICE_META_LINE } from '../content/services';
 
 const NAV = [
+  { to: '/compliance-calendar/', label: 'Due Dates' },
   { to: '/fee-schedule/', label: 'Fee Schedule' },
   { to: '/tools/', label: 'Saifi Tools' },
-  { to: '/compliance-calendar/', label: 'Due Dates' },
   { to: '/notice-desk/', label: 'Notice Desk' },
-  { to: '/knowledge-hub/', label: 'Knowledge Hub' },
 ];
 
+const HUB = { to: '/knowledge-hub/', label: 'Knowledge Hub' };
+
 const MORE = [
-  { to: '/#wizard', label: 'Setup Engine' },
+  { to: '/#our-services', label: 'All Services & Fees' },
+  { to: '/#certificates', label: 'Certificate Previews' },
   { to: '/#saifi-services-packages', label: 'Compliance Plans' },
   { to: '/tools/presumptive-tax-estimator/', label: 'Tax Estimator' },
   { to: '/faq/', label: 'FAQ' },
@@ -113,6 +116,7 @@ export default function Header() {
       </div>
 
       <header className="header">
+        <Ticker />
         <div className="wrap header__row" ref={megaRef}>
           <Link to="/" className="header__logo" aria-label={`${SITE.name} home`}>
             <Wordmark />
@@ -137,6 +141,10 @@ export default function Header() {
           </nav>
 
           <div className="header__cta">
+            <NavLink to={HUB.to} className={({ isActive }) => `header__hub${isActive ? ' is-active' : ''}`}>
+              <BookOpen size={16} strokeWidth={2} aria-hidden="true" />
+              <span>{HUB.label}</span>
+            </NavLink>
             <a href={talkToExpert.href} className="header__wa" aria-label={`${talkToExpert.label} on WhatsApp`} {...ext}>
               <WhatsAppIcon size={16} />
               <span>{talkToExpert.label}</span>
@@ -199,6 +207,7 @@ export default function Header() {
               {NAV.map((n) => (
                 <li key={n.to}><Link to={n.to}>{n.label}</Link></li>
               ))}
+              <li><Link to={HUB.to} className="drawer__hub"><BookOpen size={20} strokeWidth={2} aria-hidden="true" />{HUB.label}</Link></li>
               <li><Link to="/about/">About</Link></li>
               <li><Link to="/contact/">Contact</Link></li>
             </ul>

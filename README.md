@@ -42,6 +42,7 @@ Set these in the Vercel project. Nothing is loaded when they are empty.
 | Service names and fees | `src/content/services.raw.json` |
 | Service page titles and URLs | `src/content/services.js` |
 | Home page copy, plans, reviews, due dates, FAQs, fee schedule | `src/content/home.js` |
+| Certificate previews (names, sample details, issuer, validity) | `src/content/certificates.js` |
 | Guide metadata and FAQs | `src/content/guides.js` |
 | Guide article body | `src/pages/guideBodies.jsx` |
 | Calculator and checker copy | `src/content/tools.js` |
@@ -58,14 +59,22 @@ To change the popup's services, edit `CHIPS` in `WelcomeModal.jsx`. To change it
 
 ## Page structure
 
-The home page follows the AIDA model. The sequence is documented in `src/pages/Home.jsx`.
+The home page follows the arrangement of the client's original site, in rounded cards with centred section heads. The sequence is documented in `src/pages/Home.jsx`.
 
-| Stage | Sections | Job |
-| --- | --- | --- |
-| Attention | Hero, live Compliance Radar, ticker, proof numbers | State the promise and show a real deadline |
-| Interest | Setup Engine, Practice Verticals, Service Index | Answer "what applies to me?" |
-| Desire | Process, Reviews, Compliance Plans, ITR Checker, Presumptive Estimator | Show it is painless, trusted and worth money |
-| Action | Notice Desk, Due Dates, Licences, FAQ, Knowledge Hub, final call to action | Give urgent triggers, remove objections, make one clear ask |
+1. Header: statutory alert bar, then a sticky header with the services marquee on top, the main navigation, a **Knowledge Hub** button and **Talk to Expert**
+2. Hero
+3. Our Services: search, category pills and an expandable card per category with every fee
+4. Compliance Radar: four key deadlines, with the next one flagged live
+5. Full-Lifecycle Business Governance: three cards that open a pop-up with required documents and key benefits
+6. Certificate Preview: illustrative samples of eight certificates, each opening a larger pop-up
+7. ITR & Tax Checker, Compliance Plans, Reviews, numbers, How It Works
+8. Notice Desk, Due Dates, Licences, Presumptive Estimator, FAQ
+
+The Knowledge Hub is reached from the header only, not from the home page.
+
+### Certificate previews
+
+The certificate sheets are drawn in HTML (`src/components/Certificates.jsx`) from `src/content/certificates.js`. They use placeholder details, carry a SAMPLE watermark and contain no government emblem. Each certificate's fee is read from the service named in its `service` field, so it always matches the fee schedule.
 
 ## Search, answer and generative engine optimisation
 

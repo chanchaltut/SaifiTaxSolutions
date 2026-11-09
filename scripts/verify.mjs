@@ -86,6 +86,17 @@ const INTENTIONAL = [
   'Based on your profile, we recommend reconciling your Form 26AS and AIS before filing to claim maximum legitimate tax deductions and avoid automated mismatch notices.',
   '50% of your receipts are allowed as presumptive expense deduction! May be tax-free under the New Regime rebate (resident individuals, taxable income up to ₹12L). Eligibility conditions apply.',
   '₹6,00,000',
+  /* The Setup Engine ("Automated Discovery") block, removed at the client's request in November 2026. */
+  'Automated Discovery',
+  'Determine Your Exact Compliance Footprint',
+  'Select your enterprise model to identify non-negotiable statutory requirements.',
+  'Professional Consultant / Tech',
+  'E-Commerce Amazon / D2C',
+  'Startup Entity Pvt Ltd / LLP',
+  'Trader / Retail Wholesale / Shop',
+  '3 items identified',
+  'Receive standard document checklist and filing schedules directly. Export Checklist to WhatsApp',
+  'Business Setup Discovery',
   /* Empty states shown only after a search with no results; covered by browser tests. */
   'Didn\'t find a guide on " "?',
   'No service found for your search. Message us on WhatsApp and we will help you.',

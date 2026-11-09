@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useLocation } from '../lib/router';
-import { ArrowLeft } from 'lucide-react';
-import { Btn, Eyebrow, Heading } from './ui';
+import { ArrowLeft, Calculator, WandSparkles } from 'lucide-react';
+import { Btn, SectionHead } from './ui';
 import { estimator, checker, recommend, tools, toolsHub } from '../content/tools';
 import { wa } from '../content/site';
 
@@ -194,7 +194,7 @@ export function EstimatorWidget() {
             </>
           )}
         </p>
-        <Btn href={wa(msg)} tone="white">{estimator.cta}</Btn>
+        <Btn href={wa(msg)} tone="blue" className="btn--full">{estimator.cta}</Btn>
       </div>
     </div>
   );
@@ -204,14 +204,16 @@ export function EstimatorSection() {
   return (
     <section id="saifi-quick-estimator" className="section estimator" aria-labelledby="estim-title">
       <div className="wrap">
-        <div className="sechead" data-reveal>
-          <div className="sechead__l">
-            <Eyebrow>{estimator.eyebrow}</Eyebrow>
-            <Heading id="estim-title" a={estimator.titleA} b={estimator.titleB} />
-          </div>
-          <p className="sechead__r lede">{estimator.body}</p>
-        </div>
-        <div data-reveal>
+        <div className="estimator__panel" data-reveal>
+          <SectionHead
+            badge={estimator.eyebrow}
+            icon={Calculator}
+            tone="emerald"
+            id="estim-title"
+            a={estimator.titleA}
+            b={estimator.titleB}
+            body={estimator.body}
+          />
           <EstimatorWidget />
         </div>
       </div>
@@ -294,19 +296,18 @@ export function CheckerWidget() {
 
 export function CheckerSection() {
   return (
-    <section id="saifi-tax-quiz" className="section quiz tone-blue" aria-labelledby="quiz-title">
+    <section id="saifi-tax-quiz" className="section quiz" aria-labelledby="quiz-title">
       <div className="wrap">
-        <div className="split">
-          <div className="split__head" data-reveal>
-            <Eyebrow tone="inv">{checker.eyebrow}</Eyebrow>
-            <h2 id="quiz-title" className="h h--3xl">
-              {checker.titleA} <span className="h__accent h__accent--sky">{checker.titleB}</span>
-            </h2>
-            <p className="lede">{checker.body}</p>
-          </div>
-          <div data-reveal>
-            <CheckerWidget />
-          </div>
+        <SectionHead
+          badge={checker.eyebrow}
+          icon={WandSparkles}
+          id="quiz-title"
+          a={checker.titleA}
+          b={checker.titleB}
+          body={checker.body}
+        />
+        <div className="quiz__box" data-reveal>
+          <CheckerWidget />
         </div>
       </div>
     </section>

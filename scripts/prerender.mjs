@@ -23,7 +23,7 @@ const template = fs.readFileSync(path.join(client, 'index.html'), 'utf8');
 /* Preload the Latin subset of the variable font so the headline paints in its final face. */
 const fontFile = fs
   .readdirSync(path.join(client, 'assets'))
-  .find((f) => /host-grotesk-latin-wght-normal.*\.woff2$/.test(f));
+  .find((f) => /plus-jakarta-sans-latin-wght-normal.*\.woff2$/.test(f));
 const preload = fontFile
   ? `<link rel="preload" href="/assets/${fontFile}" as="font" type="font/woff2" crossorigin />`
   : '';

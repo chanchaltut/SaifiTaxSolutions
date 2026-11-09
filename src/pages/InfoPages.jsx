@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { AnswerBox, Btn, FaqList, PageHead, TextLink, ext } from '../components/ui';
 import { WhatsAppIcon } from '../components/brand';
 import { FinalCta, NoticeCard, Process, Reviews } from '../components/Sections';
-import DueDatesSection, { RadarStrip } from '../components/DueDates';
+import DueDatesSection, { ComplianceRadar } from '../components/DueDates';
 import { Stats } from '../components/Hero';
 import EnquiryForm, { OfficeMap } from '../components/EnquiryForm';
 import { faqs, faqText, noticeDesk, talkToExpert } from '../content/home';
@@ -20,8 +20,8 @@ export function CalendarPage() {
         title="Tax Due Dates"
         body="TDS deposit on the 7th, GSTR-1 on the 11th, GSTR-3B on the 20th, and quarterly advance tax on the 15th."
       />
-      <RadarStrip />
-      <DueDatesSection />
+      <ComplianceRadar />
+      <DueDatesSection calendar />
       <FinalCta />
     </>
   );

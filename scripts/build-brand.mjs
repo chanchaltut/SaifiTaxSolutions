@@ -22,8 +22,7 @@ await vite.close();
 /* ---------- Shared pieces ---------- */
 
 const fontUrl = (file) =>
-  `file://${path.join(root, 'node_modules/@fontsource-variable/host-grotesk/files', file)}`;
-const hyphenUrl = `file://${path.join(root, 'src/assets/fonts/hyphen.woff2')}`;
+  `file://${path.join(root, 'node_modules/@fontsource-variable/plus-jakarta-sans/files', file)}`;
 
 const BG = '#070B14';
 const SURFACE = '#0D1322';
@@ -37,19 +36,24 @@ const TEXT_2 = '#AAB7CC';
 const GRAD = 'linear-gradient(92deg,#38BDF8,#BAE6FD 52%,#A5B4FC)';
 
 const baseCss = `
-@font-face{font-family:Hy;src:url(${hyphenUrl});font-weight:100 900;unicode-range:U+002D}
-@font-face{font-family:Host;src:url(${fontUrl('host-grotesk-latin-wght-normal.woff2')});font-weight:300 800}
-@font-face{font-family:Host;src:url(${fontUrl('host-grotesk-latin-ext-wght-normal.woff2')});font-weight:300 800;unicode-range:U+0100-02AF,U+20A0-20C0,U+2113,U+2C60-2C7F}
+@font-face{font-family:Host;src:url(${fontUrl('plus-jakarta-sans-latin-wght-normal.woff2')});font-weight:200 800}
+@font-face{font-family:Host;src:url(${fontUrl('plus-jakarta-sans-latin-ext-wght-normal.woff2')});font-weight:300 800;unicode-range:U+0100-02AF,U+20A0-20C0,U+2113,U+2C60-2C7F}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:${BG}}
-body{font-family:Hy,Host,sans-serif;color:${TEXT};-webkit-font-smoothing:antialiased}
+body{font-family:Host,sans-serif;color:${TEXT};-webkit-font-smoothing:antialiased}
 `;
 
-const mark = (size, sheet = ACCENT, glyph = INK) => `
-<svg width="${size}" height="${size}" viewBox="0 0 64 64" style="display:block;flex:none">
-  <path d="M0 0H48L64 16V64H0Z" fill="${sheet}"/>
-  <path d="M31 15H13V32H28V49H11M13 15H51M39.5 15V49" fill="none" stroke="${glyph}" stroke-width="6.5"/>
-</svg>`;
+const markDefs = (id) =>
+  `<defs><linearGradient id="${id}" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient></defs>`;
+const markBody = (id, glyph = '#FFFFFF') =>
+  `<rect width="64" height="64" rx="16" fill="url(#${id})"/><path d="M31 15H13V32H28V49H11M13 15H51M39.5 15V49" fill="none" stroke="${glyph}" stroke-width="6.5" stroke-linejoin="round"/>`;
+let markN = 0;
+const mark = (size) => {
+  markN += 1;
+  const id = `mk${markN}`;
+  return `
+<svg width="${size}" height="${size}" viewBox="0 0 64 64" style="display:block;flex:none">${markDefs(id)}${markBody(id)}</svg>`;
+};
 
 const dots = (cols, rows, gap, color, r = 1.6) => {
   let c = '';
@@ -225,7 +229,7 @@ const iconPage = (size, opts = {}) => {
   return `<!doctype html><meta charset="utf-8"><style>*{margin:0}html,body{width:${size}px;height:${size}px;overflow:hidden;background:${opts.bg || 'transparent'}}div{padding:${pad}px}</style><div>${mark(size - pad * 2, opts.sheet || ACCENT, opts.glyph || INK)}</div>`;
 };
 
-const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M0 0H48L64 16V64H0Z" fill="${ACCENT}"/><path d="M31 15H13V32H28V49H11M13 15H51M39.5 15V49" fill="none" stroke="${INK}" stroke-width="6.5"/></svg>\n`;
+const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${markDefs('g')}${markBody('g')}</svg>\n`;
 
 /** Wraps a PNG in a single-image ICO container. */
 function pngToIco(png, size) {

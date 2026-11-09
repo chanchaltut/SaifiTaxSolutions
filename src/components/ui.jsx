@@ -10,15 +10,49 @@ export function Eyebrow({ children, tone, as: Tag = 'p' }) {
   return <Tag className={`eyebrow${tone ? ` eyebrow--${tone}` : ''}`}>{children}</Tag>;
 }
 
-/** Primary action. A label cell and an icon cell, like a stamped form field. */
+/** Rounded label that sits above a centred section title. */
+export function Badge({ children, icon: Icon, tone }) {
+  return (
+    <p className={`badge${tone ? ` badge--${tone}` : ''}`}>
+      {Icon && <Icon size={13} strokeWidth={2.5} aria-hidden="true" />}
+      {children}
+    </p>
+  );
+}
+
+/** Centred section head, as on the original site: badge, title with an accented phrase, intro. */
+export function SectionHead({ badge, icon, tone, id, a, b, after, body, as: Tag = 'h2', accent, children }) {
+  return (
+    <div className="shead" data-reveal>
+      {badge && <Badge icon={icon} tone={tone}>{badge}</Badge>}
+      <Tag id={id} className="shead__title">
+        {a}
+        {b && (
+          <>
+            {' '}
+            <span className={`accent${accent ? ` accent--${accent}` : ''}`}>{b}</span>
+          </>
+        )}
+        {after && <> {after}</>}
+      </Tag>
+      {body && <p className="shead__body">{body}</p>}
+      {children}
+    </div>
+  );
+}
+
+/** Primary action: a rounded button with a leading icon (WhatsApp by default). */
 export function Btn({ href, to, onClick, tone = 'blue', icon = 'wa', children, className = '', ...rest }) {
-  const cls = `btn btn--${tone} ${className}`;
-  const glyph =
-    icon === 'wa' ? <WhatsAppIcon size={18} /> : icon === 'up' ? <ArrowUpRight size={18} strokeWidth={1.75} /> : <ArrowRight size={18} strokeWidth={1.75} />;
+  const trailing = icon === 'arrow' || icon === 'up';
+  const cls = `btn btn--${tone}${trailing ? ' btn--iconend' : ''} ${className}`;
+  let glyph = icon;
+  if (icon === 'wa') glyph = <WhatsAppIcon size={18} />;
+  else if (icon === 'up') glyph = <ArrowUpRight size={18} strokeWidth={2} />;
+  else if (icon === 'arrow') glyph = <ArrowRight size={18} strokeWidth={2} />;
   const inner = (
     <>
       <span className="btn__label">{children}</span>
-      <span className="btn__icon">{glyph}</span>
+      {glyph && <span className="btn__icon" aria-hidden="true">{glyph}</span>}
     </>
   );
   if (to) return <Link to={to} className={cls} {...rest}>{inner}</Link>;

@@ -16,7 +16,7 @@ const CORE = [
 const ENGINES = [
   { to: '/tools/', label: 'Saifi Tools & Calculators' },
   { to: '/fee-schedule/', label: 'Master Fee Schedule' },
-  { to: '/#wizard', label: 'Business Setup Discovery' },
+  { to: '/#certificates', label: 'Certificate Previews' },
   { to: '/compliance-calendar/', label: 'Statutory Compliance Calendar' },
   { to: '/notice-desk/', label: 'Notice Defense Desk' },
 ];

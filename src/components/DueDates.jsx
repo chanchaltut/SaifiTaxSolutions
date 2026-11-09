@@ -1,7 +1,7 @@
-import { Eyebrow, ext } from './ui';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Check, CircleCheck, Clock, ShieldCheck } from 'lucide-react';
+import { SectionHead, ext } from './ui';
 import { dueDates, radar } from '../content/home';
-import { useToday, monthMarks, monthName } from '../hooks/useStatutory';
+import { useToday, monthMarks, monthName, upcoming, relativeDays } from '../hooks/useStatutory';
 
 const WEEK = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
@@ -37,7 +37,7 @@ function MonthSheet({ today }) {
   return (
     <div className="cal" aria-hidden={today ? undefined : 'true'}>
       <div className="cal__head">
-        <p className="cal__month">{today ? today.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' }) : ' '}</p>
+        <p className="cal__month">{today ? today.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' }) : ' '}</p>
         <p className="cal__by">{radar.by}</p>
       </div>
       <div className="cal__week" aria-hidden="true">
@@ -48,68 +48,107 @@ function MonthSheet({ today }) {
   );
 }
 
-export default function DueDatesSection({ headingTag: Tag = 'h2' }) {
+const DUE_TONES = { tds: 'sky', gstr1: 'emerald', gstr3b: 'amber', itr: 'indigo' };
+
+/** Upcoming due dates as four cards, as on the original site. The calendar page adds a live month sheet. */
+export default function DueDatesSection({ headingTag = 'h2', calendar = false }) {
   const today = useToday();
   return (
     <section id="due-dates" className="section dues" aria-labelledby="due-title">
       <div className="wrap">
-        <div className="dues__grid">
-          <div className="dues__left" data-reveal>
-            <Eyebrow>{dueDates.eyebrow}</Eyebrow>
-            <Tag id="due-title" className="h h--3xl">
-              {dueDates.titleA}{' '}
-              <span className="h__accent h__accent--grad">{today ? monthName(today) : dueDates.fallbackMonth}</span>{' '}
-              {dueDates.titleB}
-            </Tag>
-            <p className="lede">{dueDates.body}</p>
+        <SectionHead
+          as={headingTag}
+          badge={dueDates.eyebrow}
+          icon={CalendarCheck}
+          tone="amber"
+          id="due-title"
+          a={dueDates.titleA}
+          b={today ? monthName(today) : dueDates.fallbackMonth}
+          after={dueDates.titleB}
+          body={dueDates.body}
+        />
+
+        <ul className="dues__grid" data-reveal>
+          {dueDates.items.map((d) => (
+            <li key={d.id} className={`duecard card lift duecard--${DUE_TONES[d.id] || 'sky'}`}>
+              <div className="duecard__top">
+                <span className="duecard__tag">{d.tag}</span>
+                <span className={`duecard__date${d.date.length > 5 ? ' duecard__date--text' : ''}`}>{d.date}</span>
+              </div>
+              <h3 className="duecard__title">{d.title}</h3>
+              <p className="duecard__body">{d.body}</p>
+              <a className="duecard__cta" href={d.href} {...ext}>
+                {d.cta.replace(' →', '')}
+                <ArrowRight size={15} strokeWidth={2.25} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {calendar && (
+          <div className="dues__sheet" data-reveal>
             <MonthSheet today={today} />
           </div>
-
-          <ul className="dues__list" data-reveal>
-            {dueDates.items.map((d) => (
-              <li key={d.id} className="dueitem">
-                <div className="dueitem__date">
-                  <span className="dueitem__tag">{d.tag}</span>
-                  <span className={`dueitem__num${d.date.length > 5 ? ' dueitem__num--text' : ''}`}>{d.date}</span>
-                </div>
-                <div className="dueitem__main">
-                  <h3>{d.title}</h3>
-                  <p>{d.body}</p>
-                  <a href={d.href} {...ext}>
-                    {d.cta.replace(' →', '')}
-                    <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        )}
       </div>
     </section>
   );
 }
 
-/** The original four-card Compliance Radar, used where the hero panel is not present. */
-export function RadarStrip() {
+/* The four radar cards in the original site's order and colours. */
+const RADAR_ORDER = ['gstr1', 'gstr3b', 'tds', 'advance'];
+const RADAR_STYLE = {
+  gstr1: { tone: 'sky', Icon: CircleCheck },
+  gstr3b: { tone: 'amber', Icon: Clock },
+  tds: { tone: 'indigo', Icon: Check },
+  advance: { tone: 'emerald', Icon: ShieldCheck },
+};
+
+/** Compliance Radar: key statutory deadlines, with the next one flagged live. */
+export function ComplianceRadar({ headingTag: Tag = 'h2' }) {
+  const today = useToday();
+  const next = today ? upcoming(today)[0] : null;
+  const items = RADAR_ORDER.map((id) => radar.items.find((r) => r.id === id)).filter(Boolean);
+
   return (
-    <section className="radarstrip" aria-labelledby="radarstrip-title">
+    <section id="compliance-radar" className="radar" aria-labelledby="radar-title">
       <div className="wrap">
-        <div className="radarstrip__head">
-          <h2 id="radarstrip-title" className="h h--xl">{radar.title}</h2>
-          <p>{radar.sub}</p>
-          <p className="radarstrip__by">{radar.by}</p>
+        <div className="radar__head" data-reveal>
+          <div>
+            <Tag id="radar-title" className="radar__title">
+              <CalendarCheck size={22} strokeWidth={2} aria-hidden="true" />
+              {radar.title}
+            </Tag>
+            <p className="radar__sub">{radar.sub}</p>
+          </div>
+          <p className="radar__by">
+            <span className="livedot" aria-hidden="true" />
+            {radar.by}
+          </p>
         </div>
-        <ul className="radarstrip__grid">
-          {radar.items.map((r) => (
-            <li key={r.id}>
-              <p className="radarstrip__kicker">{r.kicker}</p>
-              <h3>{r.title}</h3>
-              <p className="radarstrip__when">{r.when}</p>
-              <p className="radarstrip__status">{r.status}</p>
-            </li>
-          ))}
+
+        <ul className="radar__grid" data-reveal>
+          {items.map((r) => {
+            const { tone, Icon } = RADAR_STYLE[r.id];
+            const isNext = next && next.item.id === r.id;
+            return (
+              <li key={r.id} className={`radarcard radarcard--${tone}${isNext ? ' is-next' : ''}`}>
+                <div className="radarcard__top">
+                  <span className="radarcard__kicker">{r.kicker}</span>
+                  {isNext && <span className="radarcard__next">{relativeDays(next.days)}</span>}
+                </div>
+                <h3 className="radarcard__title">{r.title}</h3>
+                <p className="radarcard__when">{r.when}</p>
+                <p className="radarcard__status">
+                  <Icon size={14} strokeWidth={2.25} aria-hidden="true" />
+                  {r.status}
+                </p>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
   );
 }
+

@@ -1,9 +1,11 @@
+import { useId } from 'react';
+
 /**
- * The Saifi Tax mark: an S and a T sharing one crossbar, set on a filing sheet
- * with its corner cut. Drawn as geometry so it never depends on a font.
+ * The Saifi Tax mark: an S and a T sharing one crossbar, on a rounded sky-to-blue tile.
+ * Drawn as geometry so it never depends on a font.
  */
 export function Mark({ size = 40, className }) {
-  const palette = { sheet: 'var(--accent)', glyph: 'var(--ink)' };
+  const id = `mk${useId().replace(/:/g, '')}`;
   return (
     <svg
       width={size}
@@ -13,14 +15,19 @@ export function Mark({ size = 40, className }) {
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M0 0H48L64 16V64H0Z" fill={palette.sheet} />
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38bdf8" />
+          <stop offset="1" stopColor="#1d4ed8" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="16" fill={`url(#${id})`} />
       <path
         d="M31 15H13V32H28V49H11M13 15H51M39.5 15V49"
         fill="none"
-        stroke={palette.glyph}
+        stroke="#fff"
         strokeWidth="6.5"
-        strokeLinecap="butt"
-        strokeLinejoin="miter"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -29,7 +36,7 @@ export function Mark({ size = 40, className }) {
 export function Wordmark({ sub = true }) {
   return (
     <span className="wordmark">
-      <Mark size={38} />
+      <Mark size={40} />
       <span className="wordmark__text">
         <span className="wordmark__name">Saifi Tax</span>
         {sub && <span className="wordmark__sub">Solutions &amp; Advisory</span>}

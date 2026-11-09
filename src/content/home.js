@@ -145,66 +145,6 @@ export const dueDates = {
 };
 
 /* ------------------------------------------------------------------ */
-/* Setup Engine (discovery wizard)                                     */
-/* ------------------------------------------------------------------ */
-
-export const discovery = {
-  eyebrow: 'Automated Discovery',
-  title: 'Determine Your Exact Compliance Footprint',
-  body: 'Select your enterprise model to identify non-negotiable statutory requirements.',
-  footer: 'Receive standard document checklist and filing schedules directly.',
-  cta: 'Export Checklist to WhatsApp',
-  profiles: [
-    {
-      key: 'Freelancer / Professional',
-      label: 'Professional',
-      sub: 'Consultant / Tech',
-      count: '3 items identified',
-      items: [
-        { title: 'ITR-4 (Presumptive) / ITR-3', tag: 'Mandatory', desc: '50% flat expense exemption.' },
-        { title: 'GST Registration', tag: 'Conditional', desc: 'If export or turnover > ₹20L.' },
-        { title: 'Advance Tax', tag: 'Quarterly', desc: 'Penalty avoidance.' },
-      ],
-    },
-    {
-      key: 'E-Commerce Seller',
-      label: 'E-Commerce',
-      sub: 'Amazon / D2C',
-      count: '4 items identified',
-      items: [
-        { title: 'Mandatory GST Registration', tag: 'Non-Negotiable', desc: 'Zero threshold.' },
-        { title: 'GSTR-1 & 3B', tag: 'Recurring', desc: 'Monthly filings.' },
-        { title: 'Trademark', tag: 'Critical', desc: 'Brand protection.' },
-        { title: 'Bookkeeping', tag: 'Essential', desc: 'Inventory accounts.' },
-      ],
-    },
-    {
-      key: 'Startup / Pvt Ltd',
-      label: 'Startup Entity',
-      sub: 'Pvt Ltd / LLP',
-      count: '4 items identified',
-      items: [
-        { title: 'MCA Incorporation', tag: 'Foundation', desc: 'DIN, MOA & AOA.' },
-        { title: 'Commencement of Business', tag: 'Statutory', desc: 'Form INC-20A.' },
-        { title: 'GST & PAN', tag: 'Compliance', desc: 'For banking.' },
-        { title: 'Auditor Appointment', tag: 'Mandatory', desc: 'Form ADT-1.' },
-      ],
-    },
-    {
-      key: 'MSME / Trader',
-      label: 'Trader / Retail',
-      sub: 'Wholesale / Shop',
-      count: '3 items identified',
-      items: [
-        { title: 'Udyam Registration', tag: 'Priority', desc: 'MSME benefits.' },
-        { title: 'GST Registration', tag: 'Statutory', desc: 'Turnover > ₹40L.' },
-        { title: 'Business ITR', tag: 'Annual', desc: 'Presumptive taxation.' },
-      ],
-    },
-  ],
-};
-
-/* ------------------------------------------------------------------ */
 /* Practice verticals (with the former modal detail pages)             */
 /* ------------------------------------------------------------------ */
 
