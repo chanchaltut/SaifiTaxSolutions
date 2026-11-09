@@ -7,20 +7,19 @@ import { SITE, tel } from '../content/site';
 import { statutoryAlert, talkToExpert } from '../content/home';
 import { Ticker } from './Hero';
 import { categories, SERVICE_META_LINE } from '../content/services';
-import { hasCertificates } from '../content/certificates';
 
 const NAV = [
   { to: '/compliance-calendar/', label: 'Due Dates' },
   { to: '/fee-schedule/', label: 'Fee Schedule' },
   { to: '/tools/', label: 'Saifi Tools' },
   { to: '/notice-desk/', label: 'Notice Desk' },
+  { to: '/#certificates', label: 'Certificates' },
 ];
 
 const HUB = { to: '/knowledge-hub/', label: 'Knowledge Hub' };
 
 const MORE = [
   { to: '/#our-services', label: 'All Services & Fees' },
-  ...(hasCertificates ? [{ to: '/#certificates', label: 'Certificate Previews' }] : []),
   { to: '/#saifi-services-packages', label: 'Compliance Plans' },
   { to: '/tools/presumptive-tax-estimator/', label: 'Tax Estimator' },
   { to: '/faq/', label: 'FAQ' },

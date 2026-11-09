@@ -100,7 +100,7 @@ export default function WelcomeModal() {
         <div className="welcome__strip" aria-hidden="true" />
 
         <div className="welcome__head">
-          <Wordmark sub={false} />
+          <Wordmark />
           <button type="button" className="welcome__close" aria-label="Close" onClick={close}>
             <X size={20} strokeWidth={1.75} />
           </button>

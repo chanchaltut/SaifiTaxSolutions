@@ -2,12 +2,13 @@ import { categories } from './services';
 import { wa } from './site';
 
 /**
- * Certificate previews on the home page show real certificates the firm has
- * delivered, with the client's personal details hidden.
+ * Certificate previews on the home page. Each card shows a real certificate the
+ * firm has delivered, with the client's personal details hidden.
  *
  * To add one, put its image in src/assets/certificates/ named after its id
- * (gst.jpg, udyam.png, itr.webp ...). A certificate without an image is not shown,
- * and the whole section stays hidden until at least one image exists.
+ * (gst.jpg, udyam.png, itr.webp ...). Until a certificate has an image, its card
+ * shows a topic photo and offers a real, redacted sample on WhatsApp instead.
+ * `photo` names the topic photo in src/assets/cards/.
  *
  * `service` must match a service name in services.raw.json, so the fee shown
  * always follows the fee schedule.
@@ -27,14 +28,18 @@ export const certificatesIntro = {
   badge: 'Certificate Preview',
   titleA: 'Preview Your',
   titleB: 'Official Certificates',
-  body: 'Every registration ends with an official document. See how each certificate looks before you apply, so you know exactly what you will receive.',
+  body: 'Every registration ends with an official document. See what each certificate is, who issues it and what it unlocks, and ask us for a real sample before you pay.',
   note: 'Real certificates delivered to our clients. Personal details are hidden to protect their privacy.',
+  sampleNote: 'Ask on WhatsApp and we will share a real certificate we have delivered, with the client’s personal details hidden.',
+  sampleLabel: 'Real sample on request',
+  sampleCta: 'Ask for a Real Sample',
   delivered: 'PDF on WhatsApp & Email',
 };
 
 const raw = [
   {
     id: 'gst',
+    photo: 'gst',
     name: 'GST Registration Certificate',
     form: 'Form GST REG-06',
     tone: 'sky',
@@ -50,6 +55,7 @@ const raw = [
   },
   {
     id: 'udyam',
+    photo: 'shop',
     name: 'Udyam (MSME) Registration Certificate',
     form: 'Udyam Registration',
     tone: 'emerald',
@@ -65,6 +71,7 @@ const raw = [
   },
   {
     id: 'itr',
+    photo: 'itr',
     name: 'ITR Acknowledgement (ITR-V)',
     form: 'Assessment Year 2026-27',
     tone: 'indigo',
@@ -80,6 +87,7 @@ const raw = [
   },
   {
     id: 'coi',
+    photo: 'company',
     name: 'Certificate of Incorporation',
     form: 'Private Limited Company',
     tone: 'amber',
@@ -95,6 +103,7 @@ const raw = [
   },
   {
     id: 'fssai',
+    photo: 'food',
     name: 'FSSAI Food Registration',
     form: 'FSSAI Registration',
     tone: 'emerald',
@@ -110,6 +119,7 @@ const raw = [
   },
   {
     id: 'tm',
+    photo: 'brand',
     name: 'Trademark Registration Certificate',
     form: 'Trade Marks Act, 1999',
     tone: 'rose',
@@ -125,6 +135,7 @@ const raw = [
   },
   {
     id: 'iec',
+    photo: 'shipping',
     name: 'Import Export Code (IEC)',
     form: 'DGFT IEC Certificate',
     tone: 'sky',
@@ -140,6 +151,7 @@ const raw = [
   },
   {
     id: 'deed',
+    photo: 'handshake',
     name: 'Partnership Deed',
     form: 'Partnership Firm',
     tone: 'indigo',
@@ -163,13 +175,10 @@ const priceOf = (serviceName) => {
   return null;
 };
 
-export const certificates = raw
-  .map((c) => ({ ...c, image: imageFor(c.id) }))
-  .filter((c) => c.image)
-  .map((c) => ({
-    ...c,
-    price: priceOf(c.service),
-    href: wa(`Hi Saifi Tax, I saw the ${c.name} preview on your website. I want to apply. Please share the process, documents and fee.`),
-  }));
-
-export const hasCertificates = certificates.length > 0;
+export const certificates = raw.map((c) => ({
+  ...c,
+  image: imageFor(c.id),
+  price: priceOf(c.service),
+  href: wa(`Hi Saifi Tax, I saw the ${c.name} preview on your website. I want to apply. Please share the process, documents and fee.`),
+  sampleHref: wa(`Hi Saifi Tax, before I apply, can you share a real sample of the ${c.name} you deliver (with personal details hidden)?`),
+}));

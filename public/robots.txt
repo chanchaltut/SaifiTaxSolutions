@@ -38,4 +38,23 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Plain-text summaries for answer engines:
+# https://saifitaxsolutions.site/llms.txt
+# https://saifitaxsolutions.site/llms-full.txt
+
 Sitemap: https://saifitaxsolutions.site/sitemap.xml

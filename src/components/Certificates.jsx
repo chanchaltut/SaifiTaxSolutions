@@ -1,19 +1,37 @@
 import { useCallback, useState } from 'react';
-import { Award, BadgeCheck, CalendarClock, Eye, Landmark, Send, ZoomIn } from 'lucide-react';
+import { Award, BadgeCheck, CalendarClock, Eye, FileCheck2, Landmark, Send, ZoomIn } from 'lucide-react';
 import Modal from './Modal';
-import { Btn, SectionHead } from './ui';
-import { certificates, certificatesIntro, hasCertificates } from '../content/certificates';
+import { Btn, CardImage, SectionHead } from './ui';
+import { WhatsAppIcon } from './brand';
+import { certificates, certificatesIntro } from '../content/certificates';
 
 const altFor = (cert) => `${cert.name} issued to a Saifi Tax Solutions client, personal details hidden`;
+
+/** Shown in place of the certificate until a real, redacted copy is added. */
+function SamplePanel({ cert }) {
+  return (
+    <div className={`certdetail__sample has-photo certcard--${cert.tone}`}>
+      <CardImage name={cert.photo} />
+      <span className="certdetail__sampleicon"><FileCheck2 size={30} strokeWidth={1.75} aria-hidden="true" /></span>
+      <p className="certdetail__sampletitle">{certificatesIntro.sampleLabel}</p>
+      <p className="certdetail__sampletext">{certificatesIntro.sampleNote}</p>
+      <Btn href={cert.sampleHref} tone="ghost" icon={<WhatsAppIcon size={16} />}>{certificatesIntro.sampleCta}</Btn>
+    </div>
+  );
+}
 
 function CertificateDetail({ cert }) {
   const titleId = `cert-${cert.id}-title`;
   return (
     <div className="certdetail">
-      <a className="certdetail__image" href={cert.image} target="_blank" rel="noopener" title="Open full size">
-        <img src={cert.image} alt={altFor(cert)} />
-        <span className="certdetail__zoom"><ZoomIn size={15} strokeWidth={2} aria-hidden="true" />Full size</span>
-      </a>
+      {cert.image ? (
+        <a className="certdetail__image" href={cert.image} target="_blank" rel="noopener" title="Open full size">
+          <img src={cert.image} alt={altFor(cert)} />
+          <span className="certdetail__zoom"><ZoomIn size={15} strokeWidth={2} aria-hidden="true" />Full size</span>
+        </a>
+      ) : (
+        <SamplePanel cert={cert} />
+      )}
       <div className="certdetail__info">
         <p className={`badge${cert.tone === 'sky' ? '' : ` badge--${cert.tone}`}`}>{cert.form}</p>
         <h3 id={titleId} className="certdetail__title">{cert.name}</h3>
@@ -39,18 +57,18 @@ function CertificateDetail({ cert }) {
         </ul>
         {cert.price && <p className="certdetail__price">{cert.price}</p>}
         <Btn href={cert.href} tone="wa" className="btn--full">{cert.cta}</Btn>
-        <p className="certdetail__note">{certificatesIntro.note}</p>
+        {cert.image && <p className="certdetail__note">{certificatesIntro.note}</p>}
       </div>
     </div>
   );
 }
 
-/** Real certificates the firm has delivered. Renders nothing until images are added. */
+/** Certificates the firm delivers. Real redacted copies appear as they are added. */
 export default function Certificates() {
   const [active, setActive] = useState(null);
   const close = useCallback(() => setActive(null), []);
-  if (!hasCertificates) return null;
   const current = certificates.find((c) => c.id === active);
+  const anyImage = certificates.some((c) => c.image);
 
   return (
     <section id="certificates" className="section certs" aria-labelledby="certs-title">
@@ -73,20 +91,29 @@ export default function Certificates() {
                 onClick={() => setActive(c.id)}
                 aria-haspopup="dialog"
               >
-                <span className="certcard__paper">
-                  <img src={c.image} alt={altFor(c)} loading="lazy" decoding="async" />
-                  <span className="certcard__zoom"><Eye size={16} strokeWidth={2} aria-hidden="true" />Preview</span>
-                </span>
+                {c.image ? (
+                  <span className="certcard__paper">
+                    <img src={c.image} alt={altFor(c)} loading="lazy" decoding="async" />
+                    <span className="certcard__zoom"><Eye size={16} strokeWidth={2} aria-hidden="true" />Preview</span>
+                  </span>
+                ) : (
+                  <span className="certcard__paper certcard__paper--photo">
+                    <CardImage name={c.photo} />
+                    <span className="certcard__seal"><FileCheck2 size={26} strokeWidth={1.75} aria-hidden="true" /></span>
+                    <span className="certcard__zoom"><Eye size={16} strokeWidth={2} aria-hidden="true" />View details</span>
+                  </span>
+                )}
                 <span className="certcard__body">
                   <span className="certcard__form">{c.form}</span>
                   <span className="certcard__name">{c.name}</span>
                   {c.price && <span className="certcard__price">{c.price}</span>}
+                  {!c.image && <span className="certcard__sample">{certificatesIntro.sampleLabel}</span>}
                 </span>
               </button>
             </li>
           ))}
         </ul>
-        <p className="certs__note">{certificatesIntro.note}</p>
+        <p className="certs__note">{anyImage ? certificatesIntro.note : certificatesIntro.sampleNote}</p>
       </div>
 
       <Modal open={Boolean(current)} onClose={close} labelledBy={current ? `cert-${current.id}-title` : undefined} size="lg">

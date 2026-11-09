@@ -33,13 +33,13 @@ export function Mark({ size = 40, className }) {
   );
 }
 
-export function Wordmark({ sub = true }) {
+/** The firm's one name, Saifi Tax Solutions. It splits onto two lines only on narrow screens. */
+export function Wordmark() {
   return (
     <span className="wordmark">
       <Mark size={40} />
-      <span className="wordmark__text">
-        <span className="wordmark__name">Saifi Tax</span>
-        {sub && <span className="wordmark__sub">Solutions &amp; Advisory</span>}
+      <span className="wordmark__name">
+        Saifi Tax <span className="wordmark__line">Solutions</span>
       </span>
     </span>
   );

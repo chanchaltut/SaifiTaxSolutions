@@ -244,7 +244,12 @@ console.log(`   Sitemap: ${locs.length} URLs. llms.txt ${fs.statSync(path.join(s
 /* ---------- 5. Credit and tone ---------- */
 
 console.log('\n5. Footer credit');
-const creditPages = pages.filter((p) => p.html.includes('href="https://www.codehyphen.in"') && p.html.includes('Code Hyphen'));
+/* A followed link (no nofollow/sponsored/ugc), so it counts as a backlink for the studio. */
+const creditLink = /<a class="footer__credit" href="https:\/\/www\.codehyphen\.in\/?"[^>]*>/;
+const creditPages = pages.filter((p) => {
+  const tag = p.html.match(creditLink);
+  return tag && !/rel="[^"]*(nofollow|sponsored|ugc)/.test(tag[0]) && p.html.includes('Code Hyphen');
+});
 if (creditPages.length !== pages.length) fail(`Credit on ${creditPages.length}/${pages.length} pages`);
 console.log(`   Code Hyphen credit linked on ${creditPages.length}/${pages.length} pages`);
 

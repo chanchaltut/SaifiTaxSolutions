@@ -1,4 +1,12 @@
-/* SITE */
-Client: Saifi Tax Solutions, Dehradun
+/* TEAM */
+Client: Saifi Tax Solutions
+Location: IT Park, Sahastradhara Road, Dehradun, Uttarakhand, India
+Site: https://saifitaxsolutions.site/
+
 Design and development: Code Hyphen
-Website: https://www.codehyphen.in
+Site: https://www.codehyphen.in/
+
+/* SITE */
+Language: English (India)
+Standards: HTML5, CSS3, schema.org JSON-LD
+Components: React, Vite, prerendered static HTML

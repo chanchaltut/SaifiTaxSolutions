@@ -52,11 +52,16 @@ const writeRoute = (route, body) => {
 
 const today = new Date().toISOString().slice(0, 10);
 const llmsSections = [];
+const images = {};
+const xml = (s) => s.replace(/&(?!amp;|quot;|lt;|gt;|#)/g, '&amp;');
 const nhm = new NodeHtmlMarkdown({ ignore: ['nav', 'script', 'style', 'svg'] });
 
 for (const r of ROUTES) {
   const html = page(r.path);
   writeRoute(r.path, html);
+  const img = html.match(/property="og:image" content="([^"]+)"/);
+  const alt = html.match(/property="og:image:alt" content="([^"]+)"/);
+  if (img) images[r.path] = { loc: img[1], title: alt ? alt[1] : '' };
   const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/);
   if (main) {
     const md = nhm.translate(main[1]).replace(/\n{3,}/g, '\n\n').trim();
@@ -67,14 +72,18 @@ for (const r of ROUTES) {
 /* A real 404 document, served automatically by Vercel for unknown URLs. */
 fs.writeFileSync(path.join(out, '404.html'), page('/page-not-found/'));
 
-/* sitemap.xml */
+/* sitemap.xml, with each page's share image so it can show in image search */
+const imageTag = (p) =>
+  images[p]
+    ? `\n    <image:image>\n      <image:loc>${xml(images[p].loc)}</image:loc>\n    </image:image>`
+    : '';
 const urls = ROUTES.map(
   (r) =>
-    `  <url>\n    <loc>${SITE}${r.path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority.toFixed(2)}</priority>\n  </url>`,
+    `  <url>\n    <loc>${SITE}${r.path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority.toFixed(2)}</priority>${imageTag(r.path)}\n  </url>`,
 ).join('\n');
 fs.writeFileSync(
   path.join(out, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls}\n</urlset>\n`,
 );
 
 /* llms.txt and its full-text companion */

@@ -14,6 +14,7 @@ Designed and built by [Code Hyphen](https://www.codehyphen.in).
 | `npm run preview` | Serve the production build at `localhost:4173` |
 | `npm run verify` | Release checks against `dist/site` (see below) |
 | `npm run og` | Regenerate favicons and social images (needs a local Chrome) |
+| `npm run indexnow` | After a production deploy, asks Bing and other IndexNow engines to recrawl every page |
 
 ## Deploying
 
@@ -67,7 +68,7 @@ The home page follows the arrangement of the client's original site, in rounded 
 3. Our Services: search, category pills and an expandable card per category with every fee
 4. Compliance Radar: four key deadlines, with the next one flagged live
 5. Full-Lifecycle Business Governance: three cards that open a pop-up with required documents and key benefits
-6. Certificate Preview: illustrative samples of eight certificates, each opening a larger pop-up
+6. Certificate Preview: eight certificates, each opening a pop-up with issuer, validity, uses and fee
 7. ITR & Tax Checker, Compliance Plans, Reviews, numbers, How It Works
 8. Notice Desk, Due Dates, Licences, Presumptive Estimator, FAQ
 
@@ -88,7 +89,7 @@ This section shows real certificates the firm has delivered, never made-up sampl
 | `iec` | Import Export Code (IEC) |
 | `deed` | Partnership Deed (first page) |
 
-Use `.jpg`, `.png` or `.webp`, about 1200px wide. Before adding an image, hide the client's name, address, PAN, GSTIN, registration numbers, QR codes and signatures, and have the client's permission. A certificate without an image is not shown, and the section and its menu links stay hidden until at least one image exists. Fees come from the service named in each entry's `service` field.
+Use `.jpg`, `.png` or `.webp`, about 1200px wide. Before adding an image, hide the client's name, address, PAN, GSTIN, registration numbers, QR codes and signatures, and have the client's permission. Until a certificate has an image, its card shows a topic photo and a "Real sample on request" button that asks for a redacted copy on WhatsApp. The section is always linked from the header, mobile menu and footer. Fees come from the service named in each entry's `service` field.
 
 ### Card photos
 
@@ -97,10 +98,11 @@ Cards carry a relevant photo under a dark overlay, either as a header strip or b
 ## Search, answer and generative engine optimisation
 
 - **Indexable pages.** 30 static URLs. The old JavaScript pop-ups (fee schedule, tools, service details) are now real pages.
-- **Structured data.** Each page carries a JSON-LD graph generated from the same content shown on screen: `AccountingService`, `WebSite`, `WebPage`, `Service` with `OfferCatalog` prices, `Article`, `FAQPage`, `HowTo`, `WebApplication`, `BreadcrumbList`.
+- **Structured data.** The home page also lists each certificate a registration delivers (issuer, validity, uses, fee) as `ItemList` of `Service`. Each page carries a JSON-LD graph generated from the same content shown on screen: `AccountingService`, `WebSite`, `WebPage`, `Service` with `OfferCatalog` prices, `Article`, `FAQPage`, `HowTo`, `WebApplication`, `BreadcrumbList`.
 - **Answer engines.** Direct answers near the top of content pages, real tables, and FAQs that exist in the HTML even while collapsed.
 - **Generative engines.** `llms.txt`, `llms-full.txt` (generated at build), and a `robots.txt` that explicitly welcomes AI crawlers. Business name, address and phone are identical everywhere.
-- **Local search.** Dehradun address, service area and geo tags. `aggregateRating` and `Review` markup are left out on purpose, because Google does not accept self-published reviews on a business's own site as rich results.
+- **Fast discovery.** The sitemap lists each page's share image, and `npm run indexnow` pings IndexNow after each deploy (the key file in `public/` must stay). Submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools once.
+- **Local search.** Dehradun address, service area and geo tags (`geo.position`, `ICBM`). `aggregateRating` and `Review` markup are left out on purpose, because Google does not accept self-published reviews on a business's own site as rich results.
 
 ## Release checks
 

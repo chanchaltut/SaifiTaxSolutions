@@ -13,6 +13,7 @@ import {
 import { tools, toolsHub } from '../content/tools';
 import { serviceFaqs } from './serviceFaqs';
 import { local } from '../content/local';
+import { certificates, certificatesIntro } from '../content/certificates';
 
 const U = SITE.url;
 const abs = (p) => `${U}${p}`;
@@ -89,7 +90,7 @@ const orgCore = {
   '@type': ['AccountingService', 'ProfessionalService'],
   '@id': ORG_ID,
   name: SITE.name,
-  alternateName: ['Saifi Tax', 'Saifi Tax Solutions & Advisory'],
+  alternateName: ['Saifi Tax', 'SaifiTaxSolutions'],
   description:
     'Expert Income Tax Return (ITR) Filing, GST Registration, GST Return Filing, MSME Registration, and Accounting Services in Dehradun and across India.',
   slogan: SITE.tagline,
@@ -156,13 +157,23 @@ const orgFull = {
 
 const orgRef = { '@id': ORG_ID };
 
+/* The studio that designed and built the site. */
+const builder = {
+  '@type': 'Organization',
+  '@id': `${SITE.credit.url}/#organization`,
+  name: SITE.credit.name,
+  url: `${SITE.credit.url}/`,
+};
+
 const website = {
   '@type': 'WebSite',
   '@id': SITE_ID,
   url: `${U}/`,
   name: SITE.name,
+  alternateName: ['Saifi Tax', 'saifitaxsolutions.site'],
   inLanguage: 'en-IN',
   publisher: orgRef,
+  creator: builder,
   potentialAction: {
     '@type': 'SearchAction',
     target: { '@type': 'EntryPoint', urlTemplate: `${U}/services/?q={search_term_string}` },
@@ -239,6 +250,28 @@ const page = (path, { title, description, image, imageAlt, ogType = 'website', j
 
 const PAGES = {};
 
+/* What each registration delivers, so answer engines can say who issues it and how long it lasts. */
+const certificateList = {
+  '@type': 'ItemList',
+  '@id': `${U}/#certificates`,
+  name: `${certificatesIntro.titleA} ${certificatesIntro.titleB}`,
+  description: certificatesIntro.body,
+  numberOfItems: certificates.length,
+  itemListElement: certificates.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: c.service,
+      serviceOutput: c.name,
+      description: `${c.name}, issued by ${c.issuer}. ${c.validity}. Used to ${c.usedFor.map((u) => u.charAt(0).toLowerCase() + u.slice(1)).join('; ')}.`,
+      provider: orgRef,
+      areaServed: { '@type': 'Country', name: 'India' },
+      ...(c.price ? { offers: offerFor({ name: c.service, price: c.price }) } : {}),
+    },
+  })),
+};
+
 {
   const path = '/';
   const title = 'Saifi Tax Solutions | ITR, GST & Company Registration, Dehradun';
@@ -252,6 +285,7 @@ const PAGES = {};
       website,
       webPage('WebPage', path, title, description),
       faqPage(path, faqs),
+      certificateList,
       howTo(
         path,
         processCopy.title,
@@ -664,6 +698,10 @@ export function buildLlms() {
     '',
     ...categories.map((c) => `- [${c.name}](${abs(c.path)}): ${c.desc} ${c.from}.`),
     '',
+    '## Certificates delivered',
+    '',
+    ...certificates.map((c) => `- ${c.name} (${c.form}): issued by ${c.issuer}. ${c.validity}.${c.price ? ` Fee ${c.price}.` : ''} Delivered as ${certificatesIntro.delivered}.`),
+    '',
     '## Guides',
     '',
     ...guides.map((g) => `- [${g.headline}](${abs(g.path)}): ${g.metaDescription}`),
@@ -679,6 +717,10 @@ export function buildLlms() {
     `- [Notice Desk](${abs('/notice-desk/')}): ${noticeDesk.body}`,
     `- [FAQ](${abs('/faq/')}): Online filing, AIS reconciliation, timelines and confidentiality.`,
     `- [Contact](${abs('/contact/')}): WhatsApp, phone, email and office address.`,
+    '',
+    '## About this site',
+    '',
+    `- Designed and built by [${SITE.credit.name}](${SITE.credit.url}/), a web design and development studio.`,
     '',
     '## Optional',
     '',

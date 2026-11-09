@@ -3,6 +3,8 @@
  * client-side head updates on navigation, so the two can never drift apart.
  */
 
+import { SITE } from '../content/site';
+
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -16,6 +18,9 @@ function tags(meta) {
     ['author', 'Saifi Tax Solutions'],
     ['geo.region', 'IN-UT'],
     ['geo.placename', 'Dehradun, Uttarakhand'],
+    ['geo.position', `${SITE.geo.lat};${SITE.geo.lng}`],
+    ['ICBM', `${SITE.geo.lat}, ${SITE.geo.lng}`],
+    ['designer', SITE.credit.name],
     ['twitter:card', 'summary_large_image'],
     ['twitter:title', meta.title],
     ['twitter:description', meta.description],
@@ -47,6 +52,7 @@ export function renderHead(meta) {
     ...props.map(([k, v]) => `<meta property="${k}" content="${esc(v)}" data-seo />`),
     `<link rel="canonical" href="${esc(meta.canonical)}" data-seo />`,
     `<link rel="alternate" hreflang="en-IN" href="${esc(meta.canonical)}" data-seo />`,
+    `<link rel="alternate" hreflang="x-default" href="${esc(meta.canonical)}" data-seo />`,
     `<script type="application/ld+json" data-seo>${safeJson(meta.jsonLd)}</script>`,
   ].join('\n    ');
 }
@@ -67,5 +73,6 @@ export function syncHead(meta) {
   props.forEach(([property, content]) => add('meta', { property, content }));
   add('link', { rel: 'canonical', href: meta.canonical });
   add('link', { rel: 'alternate', hreflang: 'en-IN', href: meta.canonical });
+  add('link', { rel: 'alternate', hreflang: 'x-default', href: meta.canonical });
   add('script', { type: 'application/ld+json' }, JSON.stringify(meta.jsonLd));
 }
