@@ -305,6 +305,48 @@ main:focus {
 .icotile--amber { background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.22); color: var(--amber); }
 .icotile--rose { background: rgba(251, 113, 133, 0.1); border-color: rgba(251, 113, 133, 0.22); color: var(--rose); }
 
+/* Card photos: a WebP under a dark overlay, as a header strip or behind the whole card. */
+
+.has-photo { position: relative; isolation: isolate; overflow: hidden; }
+
+.cardimg { position: relative; display: block; overflow: hidden; }
+
+.cardimg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.cardimg::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+
+.cardimg--cover {
+  flex: none;
+  height: var(--cover-h, 150px);
+  margin: calc(-1 * var(--pad, 24px)) calc(-1 * var(--pad, 24px)) 22px;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: #0f172a;
+}
+
+.cardimg--cover::after {
+  background: linear-gradient(180deg, rgba(7, 11, 20, 0.08) 0%, rgba(7, 11, 20, 0.4) 55%, var(--card) 100%);
+}
+
+.cardimg--bg { position: absolute; inset: 0; z-index: -1; }
+.cardimg--bg img { opacity: 0.7; }
+
+.cardimg--bg::after {
+  background:
+    linear-gradient(165deg, rgba(13, 19, 34, 0.62) 0%, rgba(13, 19, 34, 0.86) 45%, rgba(13, 19, 34, 0.96) 100%);
+}
+
+.has-photo:hover .cardimg img,
+.lift:hover .cardimg img { transform: scale(1.06); }
+
 /* ---------- Actions ---------- */
 
 .btn {

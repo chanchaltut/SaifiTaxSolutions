@@ -2,6 +2,7 @@ import { Link } from '../lib/router';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { WhatsAppIcon } from './brand';
 import { faqText } from '../content/home';
+import { cardImage } from '../content/cardImages';
 
 /** Opens an external chat in a new tab, with the attributes every WhatsApp link needs. */
 export const ext = { target: '_blank', rel: 'noopener' };
@@ -164,5 +165,20 @@ export function AnswerBox({ label = 'In short', children }) {
       <p className="answer__label">{label}</p>
       <p className="answer__text">{children}</p>
     </aside>
+  );
+}
+
+/**
+ * Decorative photo for a card. `variant="cover"` fills a header strip;
+ * `variant="bg"` sits behind the whole card. Both carry a dark overlay in CSS.
+ */
+export function CardImage({ name, variant = 'bg', children }) {
+  const src = cardImage(name);
+  if (!src && !children) return null;
+  return (
+    <span className={`cardimg cardimg--${variant}`} aria-hidden={children ? undefined : 'true'}>
+      {src && <img src={src} alt="" loading="lazy" decoding="async" />}
+      {children}
+    </span>
   );
 }

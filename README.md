@@ -42,7 +42,8 @@ Set these in the Vercel project. Nothing is loaded when they are empty.
 | Service names and fees | `src/content/services.raw.json` |
 | Service page titles and URLs | `src/content/services.js` |
 | Home page copy, plans, reviews, due dates, FAQs, fee schedule | `src/content/home.js` |
-| Certificate previews (names, sample details, issuer, validity) | `src/content/certificates.js` |
+| Certificate previews (names, issuer, validity) | `src/content/certificates.js` |
+| Card photos (which photo each card uses) | `src/content/cardImages.js`; files in `src/assets/cards/` |
 | Guide metadata and FAQs | `src/content/guides.js` |
 | Guide article body | `src/pages/guideBodies.jsx` |
 | Calculator and checker copy | `src/content/tools.js` |
@@ -74,7 +75,24 @@ The Knowledge Hub is reached from the header only, not from the home page.
 
 ### Certificate previews
 
-The certificate sheets are drawn in HTML (`src/components/Certificates.jsx`) from `src/content/certificates.js`. They use placeholder details, carry a SAMPLE watermark and contain no government emblem. Each certificate's fee is read from the service named in its `service` field, so it always matches the fee schedule.
+This section shows real certificates the firm has delivered, never made-up samples. Put each image in `src/assets/certificates/`, named after the certificate's id in `src/content/certificates.js`:
+
+| id | Certificate |
+| --- | --- |
+| `gst` | GST Registration Certificate (REG-06) |
+| `udyam` | Udyam (MSME) Registration Certificate |
+| `itr` | ITR Acknowledgement (ITR-V) |
+| `coi` | Certificate of Incorporation |
+| `fssai` | FSSAI Registration |
+| `tm` | Trademark Registration Certificate |
+| `iec` | Import Export Code (IEC) |
+| `deed` | Partnership Deed (first page) |
+
+Use `.jpg`, `.png` or `.webp`, about 1200px wide. Before adding an image, hide the client's name, address, PAN, GSTIN, registration numbers, QR codes and signatures, and have the client's permission. A certificate without an image is not shown, and the section and its menu links stay hidden until at least one image exists. Fees come from the service named in each entry's `service` field.
+
+### Card photos
+
+Cards carry a relevant photo under a dark overlay, either as a header strip or behind the whole card. The photos are WebP files in `src/assets/cards/` (about 30 KB each, lazy-loaded). `src/content/cardImages.js` maps each card to a photo. To change one, replace the file with another 880 × 550 WebP of the same name, or point the card at a different name. Every current photo is CC0 (free for commercial use, no attribution needed); sources are listed in `src/assets/cards/CREDITS.md`.
 
 ## Search, answer and generative engine optimisation
 

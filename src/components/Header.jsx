@@ -7,6 +7,7 @@ import { SITE, tel } from '../content/site';
 import { statutoryAlert, talkToExpert } from '../content/home';
 import { Ticker } from './Hero';
 import { categories, SERVICE_META_LINE } from '../content/services';
+import { hasCertificates } from '../content/certificates';
 
 const NAV = [
   { to: '/compliance-calendar/', label: 'Due Dates' },
@@ -19,7 +20,7 @@ const HUB = { to: '/knowledge-hub/', label: 'Knowledge Hub' };
 
 const MORE = [
   { to: '/#our-services', label: 'All Services & Fees' },
-  { to: '/#certificates', label: 'Certificate Previews' },
+  ...(hasCertificates ? [{ to: '/#certificates', label: 'Certificate Previews' }] : []),
   { to: '/#saifi-services-packages', label: 'Compliance Plans' },
   { to: '/tools/presumptive-tax-estimator/', label: 'Tax Estimator' },
   { to: '/faq/', label: 'FAQ' },

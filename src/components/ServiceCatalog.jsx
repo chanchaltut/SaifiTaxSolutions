@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from '../lib/router';
 import { ArrowRight, Plus, Search, X } from 'lucide-react';
 import { WhatsAppIcon } from './brand';
-import { ext } from './ui';
+import { CardImage, ext } from './ui';
+import { IMG } from '../content/cardImages';
 import { categories, categoryEnquiry, itemEnquiry, notFoundEnquiry, priceParts } from '../content/services';
 import { wa } from '../content/site';
 
@@ -109,7 +110,7 @@ export default function ServiceCatalog() {
           return (
             <details
               key={c.cat}
-              className="ccat"
+              className="ccat has-photo"
               open={isOpen}
               onToggle={(e) => {
                 if (query) return;
@@ -118,6 +119,7 @@ export default function ServiceCatalog() {
               }}
             >
               <summary>
+                <CardImage name={IMG.category[c.cat]} />
                 <span className="ccat__code">{c.code}</span>
                 <span className="ccat__name">{c.name}</span>
                 <span className="ccat__from">{c.from}</span>

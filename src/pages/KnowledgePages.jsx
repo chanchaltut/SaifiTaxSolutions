@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Link, Navigate, useParams } from '../lib/router';
 import { ArrowRight, Search, ShieldCheck, X, Clock } from 'lucide-react';
-import { AnswerBox, Btn, Crumbs, PageHead, ext } from '../components/ui';
+import { AnswerBox, Btn, CardImage, Crumbs, PageHead, ext } from '../components/ui';
+import { IMG } from '../content/cardImages';
 import { FinalCta, GuideCard } from '../components/Sections';
 import { GUIDE_BODIES } from './guideBodies';
 import { guideBySlug, guides, hub, reviewedBy } from '../content/guides';
@@ -97,7 +98,8 @@ function RelatedGuides({ current }) {
       <ul className="related__grid">
         {guides.filter((g) => g.slug !== current).map((g) => (
           <li key={g.slug}>
-            <Link to={g.path} className="relcard">
+            <Link to={g.path} className="relcard has-photo">
+              <CardImage name={IMG.guide[g.slug]} />
               <span className="relcard__tag">{g.relatedTag}</span>
               <span className="relcard__title">{g.relatedTitle}</span>
               <span className="relcard__cta">Read Guide <ArrowRight size={15} strokeWidth={1.75} aria-hidden="true" /></span>

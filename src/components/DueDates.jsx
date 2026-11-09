@@ -1,5 +1,6 @@
 import { ArrowRight, CalendarCheck, Check, CircleCheck, Clock, ShieldCheck } from 'lucide-react';
-import { SectionHead, ext } from './ui';
+import { CardImage, SectionHead, ext } from './ui';
+import { IMG } from '../content/cardImages';
 import { dueDates, radar } from '../content/home';
 import { useToday, monthMarks, monthName, upcoming, relativeDays } from '../hooks/useStatutory';
 
@@ -70,7 +71,8 @@ export default function DueDatesSection({ headingTag = 'h2', calendar = false })
 
         <ul className="dues__grid" data-reveal>
           {dueDates.items.map((d) => (
-            <li key={d.id} className={`duecard card lift duecard--${DUE_TONES[d.id] || 'sky'}`}>
+            <li key={d.id} className={`duecard card lift has-photo duecard--${DUE_TONES[d.id] || 'sky'}`}>
+              <CardImage name={IMG.due[d.id]} />
               <div className="duecard__top">
                 <span className="duecard__tag">{d.tag}</span>
                 <span className={`duecard__date${d.date.length > 5 ? ' duecard__date--text' : ''}`}>{d.date}</span>
@@ -132,7 +134,8 @@ export function ComplianceRadar({ headingTag: Tag = 'h2' }) {
             const { tone, Icon } = RADAR_STYLE[r.id];
             const isNext = next && next.item.id === r.id;
             return (
-              <li key={r.id} className={`radarcard radarcard--${tone}${isNext ? ' is-next' : ''}`}>
+              <li key={r.id} className={`radarcard has-photo radarcard--${tone}${isNext ? ' is-next' : ''}`}>
+                <CardImage name={IMG.radar[r.id]} />
                 <div className="radarcard__top">
                   <span className="radarcard__kicker">{r.kicker}</span>
                   {isNext && <span className="radarcard__next">{relativeDays(next.days)}</span>}

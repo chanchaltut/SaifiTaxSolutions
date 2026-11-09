@@ -4,6 +4,7 @@ import { Wordmark } from './brand';
 import { ext } from './ui';
 import { SITE, tel, mailto } from '../content/site';
 import { guides } from '../content/guides';
+import { hasCertificates } from '../content/certificates';
 
 const CORE = [
   { to: '/services/income-tax-return/', label: 'Income Tax (ITR) Filing' },
@@ -16,7 +17,7 @@ const CORE = [
 const ENGINES = [
   { to: '/tools/', label: 'Saifi Tools & Calculators' },
   { to: '/fee-schedule/', label: 'Master Fee Schedule' },
-  { to: '/#certificates', label: 'Certificate Previews' },
+  ...(hasCertificates ? [{ to: '/#certificates', label: 'Certificate Previews' }] : []),
   { to: '/compliance-calendar/', label: 'Statutory Compliance Calendar' },
   { to: '/notice-desk/', label: 'Notice Defense Desk' },
 ];

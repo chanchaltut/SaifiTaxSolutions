@@ -17,7 +17,8 @@ import {
   X,
 } from 'lucide-react';
 import { WhatsAppIcon } from './brand';
-import { SectionHead, ext } from './ui';
+import { CardImage, SectionHead, ext } from './ui';
+import { IMG } from '../content/cardImages';
 import { categories, categoryEnquiry, itemEnquiry, notFoundEnquiry, SERVICE_META_LINE, SERVICE_NOTE } from '../content/services';
 import { wa } from '../content/site';
 
@@ -108,7 +109,7 @@ export default function OurServices() {
           {visible.map((c) => (
             <details
               key={c.cat}
-              className="svccard"
+              className="svccard has-photo"
               open={Boolean(query) || Boolean(opened[c.cat]) || cat === c.cat}
               onToggle={(e) => {
                 if (query || cat === c.cat) return;
@@ -117,6 +118,7 @@ export default function OurServices() {
               }}
             >
               <summary>
+                <CardImage name={IMG.category[c.cat]} />
                 <span className="icotile svccard__icon"><CategoryIcon cat={c.cat} /></span>
                 <span className="svccard__text">
                   <span className="svccard__name">{c.name}</span>

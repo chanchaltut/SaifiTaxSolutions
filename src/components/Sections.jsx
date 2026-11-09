@@ -27,7 +27,8 @@ import {
   Zap,
 } from 'lucide-react';
 import Modal from './Modal';
-import { Btn, FaqList, SectionHead, TextLink, ext } from './ui';
+import { Btn, CardImage, FaqList, SectionHead, TextLink, ext } from './ui';
+import { IMG } from '../content/cardImages';
 import { WhatsAppIcon } from './brand';
 import {
   verticals,
@@ -120,6 +121,7 @@ export function Verticals() {
             return (
               <li key={v.id}>
                 <button type="button" className={`vcard card lift vcard--${tone}`} onClick={() => setActive(v.id)} aria-haspopup="dialog">
+                  <CardImage name={IMG.vertical[v.id]} variant="cover" />
                   <span className={`icotile icotile--${tone}`}><Icon size={22} strokeWidth={2} aria-hidden="true" /></span>
                   <span className="vcard__title">{v.title}</span>
                   <span className="vcard__body">{v.body}</span>
@@ -153,6 +155,7 @@ export function Process() {
         <ol className="process__grid" data-reveal>
           {process.steps.map((s, i) => (
             <li key={s.n} className="pstep card lift">
+              <CardImage name={IMG.step[i]} variant="cover" />
               <p className={`pstep__n pstep__n--${STEP_TONES[i]}`}>{s.n}</p>
               <h3 className="pstep__title">{s.title}</h3>
               <p className="pstep__body">{s.body}</p>
@@ -232,6 +235,7 @@ export function PlanCard({ plan }) {
   return (
     <article className={`plan card plan--${tone}${plan.featured ? ' plan--featured' : ''}`}>
       {plan.featured && <p className="plan__flag">{plan.featured}</p>}
+      <CardImage name={IMG.plan[plan.id]} variant="cover" />
       <span className={`icotile icotile--${tone}`}><Icon size={20} strokeWidth={2} aria-hidden="true" /></span>
       <p className="plan__kicker">{plan.kicker}</p>
       <h3 className="plan__title">{plan.title}</h3>
@@ -278,7 +282,8 @@ const NOTICE_TONES = { s139: 'rose', s143: 'amber', ais: 'sky', gst: 'indigo' };
 
 export function NoticeCard({ n }) {
   return (
-    <article className={`notice notice--${NOTICE_TONES[n.id] || 'rose'}`}>
+    <article className={`notice has-photo notice--${NOTICE_TONES[n.id] || 'rose'}`}>
+      <CardImage name={IMG.notice[n.id]} />
       <p className="notice__section">{n.section}</p>
       <h3 className="notice__title">{n.title}</h3>
       <p className="notice__body">{n.body}</p>
@@ -331,6 +336,7 @@ export function LicenceRow({ l }) {
   const { tone, Icon } = LICENCE_STYLE[l.id] || { tone: 'sky', Icon: FileText };
   return (
     <article className="licence card lift">
+      <CardImage name={IMG.licence[l.id]} variant="cover" />
       <div className="licence__top">
         <span className={`icotile icotile--${tone}`}><Icon size={19} strokeWidth={2} aria-hidden="true" /></span>
         <a href={l.href} className="licence__cta" {...ext}>{licencesIntro.cta}</a>
@@ -387,9 +393,9 @@ export function FaqSection() {
 export function GuideCard({ g }) {
   return (
     <Link to={g.path} className={`gcard card lift gcard--${g.slug}`}>
-      <span className="gcard__cover" aria-hidden="true">
-        <span>{g.cover}</span>
-      </span>
+      <CardImage name={IMG.guide[g.slug]} variant="cover">
+        <span className="gcard__label" aria-hidden="true">{g.cover}</span>
+      </CardImage>
       <span className="gcard__inner">
         <span className="gcard__meta">
           <span>{g.tag}</span>

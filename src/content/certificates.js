@@ -2,18 +2,33 @@ import { categories } from './services';
 import { wa } from './site';
 
 /**
- * Certificate previews shown on the home page. Each one is an illustrative sample
- * drawn in HTML with placeholder details, watermarked SAMPLE and free of any
- * government emblem. `service` must match a service name in services.raw.json,
- * so the fee shown always follows the fee schedule.
+ * Certificate previews on the home page show real certificates the firm has
+ * delivered, with the client's personal details hidden.
+ *
+ * To add one, put its image in src/assets/certificates/ named after its id
+ * (gst.jpg, udyam.png, itr.webp ...). A certificate without an image is not shown,
+ * and the whole section stays hidden until at least one image exists.
+ *
+ * `service` must match a service name in services.raw.json, so the fee shown
+ * always follows the fee schedule.
  */
+
+const IMAGES = import.meta.glob('../assets/certificates/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+});
+
+const imageFor = (id) => {
+  const key = Object.keys(IMAGES).find((k) => k.split('/').pop().replace(/\.[a-z]+$/, '') === id);
+  return key ? IMAGES[key] : null;
+};
 
 export const certificatesIntro = {
   badge: 'Certificate Preview',
   titleA: 'Preview Your',
   titleB: 'Official Certificates',
   body: 'Every registration ends with an official document. See how each certificate looks before you apply, so you know exactly what you will receive.',
-  note: 'Illustrative samples with placeholder details. Your certificate is issued by the authority shown, in its official format.',
+  note: 'Real certificates delivered to our clients. Personal details are hidden to protect their privacy.',
   delivered: 'PDF on WhatsApp & Email',
 };
 
@@ -32,22 +47,6 @@ const raw = [
       'Open a current account in the business name',
     ],
     cta: 'Apply for GST Registration',
-    paper: {
-      variant: 'form',
-      seal: 'GSTN',
-      top: ['Government of India', 'Form GST REG-06', '[See rule 10(1)]'],
-      title: 'Registration Certificate',
-      reg: ['Registration Number', '05ABCDE1234F1Z5'],
-      rows: [
-        ['Legal Name', 'Your Business Name'],
-        ['Trade Name, if any', 'Your Brand'],
-        ['Constitution of Business', 'Proprietorship'],
-        ['Principal Place of Business', 'Rajpur Road, Dehradun, Uttarakhand 248001'],
-        ['Date of Liability', '01/04/2026'],
-        ['Type of Registration', 'Regular'],
-      ],
-      foot: 'Digitally signed on the GST portal',
-    },
   },
   {
     id: 'udyam',
@@ -63,21 +62,6 @@ const raw = [
       'Protection against delayed payments from buyers',
     ],
     cta: 'Apply for Udyam Registration',
-    paper: {
-      variant: 'form',
-      seal: 'MSME',
-      top: ['Government of India', 'Ministry of Micro, Small & Medium Enterprises'],
-      title: 'Udyam Registration Certificate',
-      reg: ['Udyam Registration Number', 'UDYAM-UK-05-0012345'],
-      rows: [
-        ['Type of Enterprise', 'Micro'],
-        ['Major Activity', 'Services'],
-        ['Name of Enterprise', 'Your Business Name'],
-        ['Date of Incorporation', '12/03/2026'],
-        ['Date of Udyam Registration', '15/03/2026'],
-      ],
-      foot: 'Verifiable online with the Udyam number',
-    },
   },
   {
     id: 'itr',
@@ -93,22 +77,6 @@ const raw = [
       'Claim refunds and carry forward losses',
     ],
     cta: 'File My ITR',
-    paper: {
-      variant: 'ack',
-      seal: 'ITD',
-      top: ['Indian Income Tax Return Acknowledgement'],
-      title: 'Assessment Year 2026-27',
-      reg: ['e-Filing Acknowledgement Number', '1234567890XXXXX'],
-      rows: [
-        ['PAN', 'ABCDE1234F'],
-        ['Name', 'Your Full Name'],
-        ['Form Number', 'ITR-4 (Sugam)'],
-        ['Total Income', '₹ 6,00,000'],
-        ['Net Tax Payable', '₹ 0'],
-        ['Refund', '₹ 12,500'],
-      ],
-      foot: 'Return verified electronically',
-    },
   },
   {
     id: 'coi',
@@ -124,20 +92,6 @@ const raw = [
       'Open bank accounts and sign contracts as a company',
     ],
     cta: 'Register My Company',
-    paper: {
-      variant: 'cert',
-      seal: 'MCA',
-      top: ['Government of India', 'Ministry of Corporate Affairs', 'Central Registration Centre'],
-      title: 'Certificate of Incorporation',
-      sub: '[Pursuant to sub-section (2) of section 7 of the Companies Act, 2013]',
-      text: 'I hereby certify that YOUR COMPANY PRIVATE LIMITED is incorporated on this fifteenth day of March, two thousand twenty-six under the Companies Act, 2013 and that the company is limited by shares.',
-      rows: [
-        ['Corporate Identity Number', 'U74999UK2026PTC012345'],
-        ['PAN', 'ABCCY1234D'],
-        ['TAN', 'DEHY01234B'],
-      ],
-      foot: 'Registrar of Companies',
-    },
   },
   {
     id: 'fssai',
@@ -153,20 +107,6 @@ const raw = [
       'Print the FSSAI number on your packaging',
     ],
     cta: 'Apply for FSSAI',
-    paper: {
-      variant: 'form',
-      seal: 'FSSAI',
-      top: ['Food Safety and Standards Authority of India', 'Ministry of Health & Family Welfare'],
-      title: 'Registration Certificate',
-      reg: ['Registration Number', '22626050000XXX'],
-      rows: [
-        ['Food Business Operator', 'Your Business Name'],
-        ['Address of Premises', 'Rajpur Road, Dehradun, Uttarakhand'],
-        ['Kind of Business', 'Food Service / Retail'],
-        ['Valid Upto', '14/03/2031'],
-      ],
-      foot: 'Display at a prominent place in the premises',
-    },
   },
   {
     id: 'tm',
@@ -182,20 +122,6 @@ const raw = [
       'Brand registry on online marketplaces',
     ],
     cta: 'Protect My Brand',
-    paper: {
-      variant: 'cert',
-      seal: 'TMR',
-      top: ['Government of India', 'Trade Marks Registry'],
-      title: 'Certificate of Registration of Trade Mark',
-      sub: 'Section 23(2), Rule 56(1)',
-      text: 'Trade Mark No. 6123456 in Class 35 has been registered in the name of YOUR BUSINESS NAME, trading as YOUR BRAND, in respect of the services described in the registration.',
-      rows: [
-        ['Trade Mark', 'YOUR BRAND ®'],
-        ['Date of Application', '15/03/2026'],
-        ['Class', '35'],
-      ],
-      foot: 'Registrar of Trade Marks',
-    },
   },
   {
     id: 'iec',
@@ -211,20 +137,6 @@ const raw = [
       'Sell abroad through global marketplace programmes',
     ],
     cta: 'Apply for IEC',
-    paper: {
-      variant: 'form',
-      seal: 'DGFT',
-      top: ['Government of India', 'Ministry of Commerce and Industry', 'Directorate General of Foreign Trade'],
-      title: 'Importer-Exporter Code',
-      reg: ['IEC Number', 'ABCDE1234F'],
-      rows: [
-        ['IEC Issue Date', '15/03/2026'],
-        ['Firm Name', 'Your Business Name'],
-        ['Nature of Concern', 'Proprietorship'],
-        ['Address', 'Rajpur Road, Dehradun, Uttarakhand 248001'],
-      ],
-      foot: 'Generated on the DGFT portal',
-    },
   },
   {
     id: 'deed',
@@ -240,19 +152,6 @@ const raw = [
       'Prevents disputes between partners',
     ],
     cta: 'Draft My Partnership Deed',
-    paper: {
-      variant: 'deed',
-      seal: 'DEED',
-      top: ['Executed on Non-Judicial Stamp Paper'],
-      title: 'Deed of Partnership',
-      text: 'This Deed of Partnership is made at Dehradun on the fifteenth day of March, 2026 between PARTNER ONE (the First Party) and PARTNER TWO (the Second Party), who agree to carry on business in partnership on the terms below.',
-      rows: [
-        ['Name of Firm', 'M/s Your Firm Name'],
-        ['Profit Sharing Ratio', '50 : 50'],
-        ['Capital Contribution', 'As per Schedule A'],
-      ],
-      foot: 'Signed by both partners and two witnesses',
-    },
   },
 ];
 
@@ -264,8 +163,13 @@ const priceOf = (serviceName) => {
   return null;
 };
 
-export const certificates = raw.map((c) => ({
-  ...c,
-  price: priceOf(c.service),
-  href: wa(`Hi Saifi Tax, I saw the ${c.name} preview on your website. I want to apply. Please share the process, documents and fee.`),
-}));
+export const certificates = raw
+  .map((c) => ({ ...c, image: imageFor(c.id) }))
+  .filter((c) => c.image)
+  .map((c) => ({
+    ...c,
+    price: priceOf(c.service),
+    href: wa(`Hi Saifi Tax, I saw the ${c.name} preview on your website. I want to apply. Please share the process, documents and fee.`),
+  }));
+
+export const hasCertificates = certificates.length > 0;

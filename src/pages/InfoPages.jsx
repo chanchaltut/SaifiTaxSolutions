@@ -1,6 +1,7 @@
 import { Link } from '../lib/router';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { AnswerBox, Btn, FaqList, PageHead, TextLink, ext } from '../components/ui';
+import { AnswerBox, Btn, CardImage, FaqList, PageHead, TextLink, ext } from '../components/ui';
+import { IMG } from '../content/cardImages';
 import { WhatsAppIcon } from '../components/brand';
 import { FinalCta, NoticeCard, Process, Reviews } from '../components/Sections';
 import DueDatesSection, { ComplianceRadar } from '../components/DueDates';
@@ -145,23 +146,27 @@ export function ContactPage() {
       <section className="section section--tight">
         <div className="wrap">
           <address className="contactgrid">
-            <a href={talkToExpert.href} className="contactcard" {...ext}>
+            <a href={talkToExpert.href} className="contactcard has-photo" {...ext}>
+              <CardImage name={IMG.contact[0]} />
               <WhatsAppIcon size={24} />
               <span className="contactcard__k">WhatsApp</span>
               <span className="contactcard__v">{SITE.phoneDisplay}</span>
               <span className="contactcard__n">15 Mins Avg. WhatsApp Response</span>
             </a>
-            <a href={tel} className="contactcard">
+            <a href={tel} className="contactcard has-photo">
+              <CardImage name={IMG.contact[1]} />
               <Phone size={24} strokeWidth={1.5} aria-hidden="true" />
               <span className="contactcard__k">Phone</span>
               <span className="contactcard__v">{SITE.phoneDisplay}</span>
             </a>
-            <a href={mailto} className="contactcard">
+            <a href={mailto} className="contactcard has-photo">
+              <CardImage name={IMG.contact[2]} />
               <Mail size={24} strokeWidth={1.5} aria-hidden="true" />
               <span className="contactcard__k">Email</span>
               <span className="contactcard__v contactcard__v--sm">{SITE.email}</span>
             </a>
-            <a href={SITE.mapUrl} className="contactcard" {...ext}>
+            <a href={SITE.mapUrl} className="contactcard has-photo" {...ext}>
+              <CardImage name={IMG.contact[3]} />
               <MapPin size={24} strokeWidth={1.5} aria-hidden="true" />
               <span className="contactcard__k">Office Location</span>
               <span className="contactcard__v contactcard__v--sm">{SITE.address.full}</span>

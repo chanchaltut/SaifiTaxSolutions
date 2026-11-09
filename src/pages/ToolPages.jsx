@@ -1,6 +1,7 @@
 import { Link } from '../lib/router';
 import { ArrowRight } from 'lucide-react';
-import { PageHead } from '../components/ui';
+import { CardImage, PageHead } from '../components/ui';
+import { IMG } from '../content/cardImages';
 import { FinalCta } from '../components/Sections';
 import { CheckerWidget, EmiCalculator, EstimatorWidget, GstCalculator, ToolsNav } from '../components/Tools';
 import { toolById, tools, toolsHub } from '../content/tools';
@@ -20,6 +21,7 @@ export function ToolsHubPage() {
             {tools.map((t, i) => (
               <li key={t.id}>
                 <Link to={t.path} className="toolcard">
+                  <CardImage name={IMG.tool[t.id]} variant="cover" />
                   <span className="toolcard__n">{String(i + 1).padStart(2, '0')}</span>
                   <span className="toolcard__title">{t.title}</span>
                   <span className="toolcard__body">{t.blurb}</span>
@@ -29,6 +31,7 @@ export function ToolsHubPage() {
             ))}
             <li>
               <div className="toolcard toolcard--soon" aria-disabled="true">
+                <CardImage name={IMG.tool.soon} variant="cover" />
                 <span className="toolcard__n">{String(tools.length + 1).padStart(2, '0')}</span>
                 <span className="toolcard__title">{toolsHub.soon}</span>
               </div>
