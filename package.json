@@ -3,6 +3,7 @@
   "private": true,
   "description": "Saifi Tax Solutions: website (client) and website management API (server)",
   "scripts": {
+    "dev": "npm --prefix server run dev & npm --prefix client run dev",
     "install:all": "npm --prefix client install && npm --prefix server install",
     "dev:client": "npm --prefix client run dev",
     "dev:server": "npm --prefix server run dev",
