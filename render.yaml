@@ -1,0 +1,44 @@
+# One-click setup of the website management API on Render
+# (render.com → New → Blueprint → pick this repository).
+# Values marked "sync: false" are typed into the Render dashboard, never stored here.
+services:
+  - type: web
+    name: saifi-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/public/health
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: TRUST_PROXY
+        value: "1"
+      - key: COOKIE_SAMESITE
+        value: lax
+      - key: CLOUDINARY_FOLDER
+        value: saifi
+      - key: REBUILD_DELAY_MINUTES
+        value: "2"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: DEPLOY_HOOK_URL
+        sync: false

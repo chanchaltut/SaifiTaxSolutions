@@ -1,0 +1,1744 @@
+{
+ "version": 1,
+ "note": "Built-in starting content. Used by `npm run seed` and as the website fallback.",
+ "singles": {
+  "settings": {
+   "name": "Saifi Tax Solutions",
+   "short": "Saifi Tax",
+   "phone": "+91 9548932631",
+   "whatsapp": "919548932631",
+   "email": "taxmateassociates06@gmail.com",
+   "street": "IT Park, Sahastradhara Road",
+   "city": "Dehradun",
+   "region": "Uttarakhand",
+   "postal": "248001",
+   "addressShort": "IT Park, Dehradun",
+   "lat": 30.3647,
+   "lng": 78.0874,
+   "hours": [],
+   "blurb": "Statutory tax, GST, and corporate legal consulting designed for modern Indian enterprises. Built in Dehradun, serving across India.",
+   "tagline": "Fast. Accurate. 100% Digital.",
+   "alertOn": true,
+   "alert": "Statutory Window Open: Monthly GSTR-1 & 3B Processing Active",
+   "talkLabel": "Talk to Expert",
+   "talkMessage": "Hi Saifi Tax Solutions, I would like to consult regarding my business taxation.",
+   "ticker": [
+    "GST Registration",
+    "ITR Filing",
+    "Company Registration",
+    "TDS Returns",
+    "Bookkeeping",
+    "ROC Compliance",
+    "MSME Registration",
+    "Tax Notices",
+    "IEC Registration",
+    "Digital Signature",
+    "Trademark Registration",
+    "FSSAI License",
+    "Startup India",
+    "Project Reports",
+    "Tax Audit",
+    "GST Annual Return",
+    "Income Tax Planning",
+    "CMA Data",
+    "DPIIT Recognition",
+    "PF & ESIC"
+   ],
+   "welcomeOn": true
+  },
+  "hero": {
+   "eyebrow": "Your Trusted Financial Partner — Dehradun",
+   "titleA": "Expert Tax & Compliance",
+   "titleB": "Services Across India",
+   "body": "GST, ITR & TDS filing, Company & MSME registrations, Comprehensive Tax Advisory — delivered 100% online with accuracy and transparency.",
+   "primaryLabel": "Chat With Us on WhatsApp",
+   "primaryMessage": "Hi Saifi Tax Solutions, I would like to know about your services.",
+   "secondaryLabel": "Saifi Tools",
+   "stats": [
+    {
+     "value": "500+",
+     "label": "ITR & GST Filings"
+    },
+    {
+     "value": "99.8%",
+     "label": "Notice-Free Accuracy"
+    },
+    {
+     "value": "15 Mins",
+     "label": "Avg. WhatsApp Response"
+    },
+    {
+     "value": "100%",
+     "label": "Paperless & Confidential"
+    }
+   ]
+  },
+  "feeSchedule": {
+   "title": "Master Fee Schedule",
+   "heading": "Transparent Service Economics",
+   "body": "Zero hidden retainers. Premium services at standard national pricing.",
+   "cta": "Contact to Start",
+   "groups": [
+    {
+     "title": "Taxation & GST",
+     "rows": [
+      {
+       "label": "ITR Salary",
+       "price": "₹499"
+      },
+      {
+       "label": "ITR Business",
+       "price": "₹999"
+      },
+      {
+       "label": "ITR Sal. + Cap Gain",
+       "price": "₹1,499"
+      },
+      {
+       "label": "ITR Audited",
+       "price": "₹4,999"
+      },
+      {
+       "label": "GST Reg (Individual)",
+       "price": "₹1,499"
+      },
+      {
+       "label": "GST Reg (Partnership)",
+       "price": "₹1,999"
+      },
+      {
+       "label": "GST Returns",
+       "price": "From ₹499"
+      }
+     ]
+    },
+    {
+     "title": "Company Setup & Licences",
+     "rows": [
+      {
+       "label": "Pvt Ltd + GST",
+       "price": "₹11,999"
+      },
+      {
+       "label": "LLP + GST",
+       "price": "₹10,999"
+      },
+      {
+       "label": "Partnership Deed",
+       "price": "₹2,499"
+      },
+      {
+       "label": "Trademark",
+       "price": "₹9,440"
+      },
+      {
+       "label": "DSC (Signature)",
+       "price": "₹2,360"
+      },
+      {
+       "label": "PAN / TAN",
+       "price": "₹399"
+      }
+     ]
+    },
+    {
+     "title": "Accounting & Reports",
+     "rows": [
+      {
+       "label": "Balance Sheet",
+       "price": "₹999"
+      },
+      {
+       "label": "Project Report 3–5 Yrs",
+       "price": "₹4,999"
+      },
+      {
+       "label": "Project Report 7 Yrs",
+       "price": "₹6,999"
+      },
+      {
+       "label": "Full Bookkeeping",
+       "price": "₹7,999"
+      },
+      {
+       "label": "Online Accounting",
+       "price": "From ₹1,499"
+      }
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "eyebrow": "Tax & Compliance Library",
+   "title": "Saifi Knowledge Hub",
+   "body": "Expert guides, tax strategies, and compliance breakdowns to help you manage your business effortlessly.",
+   "searchPlaceholder": "Search tax guides (e.g., Form 16, AIS, ITR-4, Documents, Notice)...",
+   "categories": [
+    {
+     "key": "basics",
+     "label": "ITR Basics"
+    },
+    {
+     "key": "forms",
+     "label": "ITR Forms"
+    },
+    {
+     "key": "checklist",
+     "label": "Document Checklists"
+    },
+    {
+     "key": "reconciliation",
+     "label": "26AS & AIS"
+    }
+   ],
+   "allLabel": "All Guides",
+   "emptyTitle": "Didn't find a guide on \"",
+   "emptyBody": "Our compliance team can answer your exact question directly on WhatsApp within minutes.",
+   "emptyCta": "Ask Expert About This Topic",
+   "reviewedInitials": "ST",
+   "reviewedTitle": "Reviewed by Saifi Tax Compliance Team",
+   "reviewedBadge": "Verified Tax Guide",
+   "reviewedBodyA": "Prepared and updated by the tax & legal compliance specialists at ",
+   "reviewedStrong": "Saifi Tax Solutions (Dehradun)",
+   "reviewedBodyB": ". We help salaried individuals, freelancers, and MSMEs across India file accurate, notice-free Income Tax and GST returns."
+  },
+  "deadlines": {
+   "radarTitle": "Compliance Radar",
+   "radarSub": "Key statutory deadlines for Indian businesses",
+   "radarBy": "Auto-monitored by Saifi Tax Solutions",
+   "radar": [
+    {
+     "key": "tds",
+     "kicker": "Withholding",
+     "title": "TDS Payment Deposit",
+     "when": "7th of succeeding month",
+     "status": "Chalan 281 Verification",
+     "day": 7
+    },
+    {
+     "key": "gstr1",
+     "kicker": "GST Return",
+     "title": "GSTR-1 Monthly",
+     "when": "11th of every month",
+     "status": "Standard Filing Period",
+     "day": 11
+    },
+    {
+     "key": "advance",
+     "kicker": "Income Tax",
+     "title": "Advance Tax Instalment",
+     "when": "Quarterly cycles (15th)",
+     "status": "Penal Interest Protection",
+     "day": 15,
+     "months": "Mar, Jun, Sep, Dec"
+    },
+    {
+     "key": "gstr3b",
+     "kicker": "Tax & ITC",
+     "title": "GSTR-3B Summary",
+     "when": "20th of every month",
+     "status": "Reconciliation Recommended",
+     "day": 20
+    }
+   ],
+   "dueEyebrow": "Statutory Compliance Calendar",
+   "dueTitleA": "Upcoming",
+   "dueTitleB": "Tax Due Dates",
+   "dueBody": "Avoid ₹50/day GST late fees, 1.5% monthly interest, and Section 234F penalties by filing before the statutory cut-off.",
+   "dueFallback": "Monthly",
+   "due": [
+    {
+     "key": "tds",
+     "tag": "Every Month",
+     "date": "7th",
+     "title": "Monthly TDS / TCS Deposit",
+     "body": "Challan ITNS-281 payment for tax deducted in the previous month.",
+     "cta": "Book TDS Filing →",
+     "message": "Hi Saifi Tax, I need help with TDS Deposit / Quarterly TDS Return."
+    },
+    {
+     "key": "gstr1",
+     "tag": "GSTR-1",
+     "date": "11th",
+     "title": "GSTR-1 Outward Supplies",
+     "body": "Monthly B2B & B2C sales invoice reporting so your buyers get timely ITC.",
+     "cta": "File GSTR-1 Now →",
+     "message": "Hi Saifi Tax, I want to file my GSTR-1 before the 11th due date."
+    },
+    {
+     "key": "gstr3b",
+     "tag": "GSTR-3B",
+     "date": "20th",
+     "title": "GSTR-3B & ITC Match",
+     "body": "Monthly summary return & tax payment after GSTR-2B input credit reconciliation.",
+     "cta": "File GSTR-3B Now →",
+     "message": "Hi Saifi Tax, I want to file my GSTR-3B before the 20th due date."
+    },
+    {
+     "key": "itr",
+     "tag": "Income Tax",
+     "date": "ITR / Belated",
+     "title": "Annual ITR & Revised Filing",
+     "body": "File original, belated (u/s 139(4)), or updated ITR-U returns to keep loan files clean.",
+     "cta": "File ITR Today →",
+     "message": "Hi Saifi Tax, I want to file my Pending / Current Income Tax Return."
+    }
+   ]
+  },
+  "process": {
+   "eyebrow": "Zero Office Visits Required",
+   "titleA": "How Online Filing Works in",
+   "titleB": "4 Simple Steps",
+   "body": "Get your tax returns, GST, or business registrations completed from your phone while our compliance team handles the heavy lifting.",
+   "steps": [
+    {
+     "n": "STEP 01",
+     "title": "Share Docs on WhatsApp",
+     "body": "Send your Form 16, PAN, or business details securely on our official WhatsApp desk."
+    },
+    {
+     "n": "STEP 02",
+     "title": "26AS & AIS Audit",
+     "body": "Our experts cross-verify every entry with government portals and calculate maximum tax savings."
+    },
+    {
+     "n": "STEP 03",
+     "title": "Draft Review & Approval",
+     "body": "We share the clear tax computation sheet with you on WhatsApp for your confirmation before filing."
+    },
+    {
+     "n": "STEP 04",
+     "title": "Instant Govt. Receipt",
+     "body": "Receive your official ITR-V Acknowledgement or GST Certificate directly on WhatsApp & Email."
+    }
+   ]
+  },
+  "noticeDesk": {
+   "eyebrow": "Priority Legal & Tax Notice Representation",
+   "titleA": "Received an Income Tax or",
+   "titleB": "GST Notice?",
+   "body": "Do not ignore portal intimations or reply without reconciliation. Send a photo or PDF of your notice for a confidential expert assessment.",
+   "cta": "Send Notice Photo on WhatsApp",
+   "message": "Hi Saifi Tax, I have received an Income Tax / GST Notice and need urgent expert review.",
+   "items": [
+    {
+     "key": "s139",
+     "section": "Section 139(9)",
+     "title": "Defective Return Notice",
+     "body": "Triggered when wrong ITR form is filed or TDS claimed doesn't match 26AS/AIS turnover.",
+     "cta": "Resolve 139(9)",
+     "message": "Hi Saifi Tax, I received a Section 139(9) Defective Return Notice. Please help resolve it."
+    },
+    {
+     "key": "s143",
+     "section": "Section 143(1) / 133(6)",
+     "title": "Intimation & Demand",
+     "body": "Tax calculation mismatch, high-value transaction query, or disallowed deductions rectification.",
+     "cta": "File Rectification",
+     "message": "Hi Saifi Tax, I received a 143(1) Intimation / Demand Notice. Please help."
+    },
+    {
+     "key": "ais",
+     "section": "AIS / 26AS Portal",
+     "title": "AIS Mismatch Feedback",
+     "body": "Unreported stocks, mutual funds, property sales, or bank interest reflecting on compliance portal.",
+     "cta": "Fix AIS Mismatch",
+     "message": "Hi Saifi Tax, my AIS has a mismatch and I need help submitting portal feedback."
+    },
+    {
+     "key": "gst",
+     "section": "GST REG-17 / DRC-01",
+     "title": "GST Suspension / SCN",
+     "body": "Reply to GST Show Cause Notice, revoke suspended GSTIN, or reconcile GSTR-2B vs 3B ITC differences.",
+     "cta": "Draft GST Reply",
+     "message": "Hi Saifi Tax, I need urgent help with a GST Show Cause Notice / Suspended GSTIN."
+    }
+   ]
+  },
+  "licences": {
+   "eyebrow": "Complete Business Desk",
+   "titleA": "Registrations, Licenses &",
+   "titleB": "Startup Registrations",
+   "body": "Beyond ITR and GST, we provide complete legal and statutory registrations for shops, startups, exporters, and enterprises across India.",
+   "cta": "Apply on WhatsApp →",
+   "items": [
+    {
+     "key": "fssai",
+     "title": "FSSAI Food License",
+     "body": "Basic, State & Central FSSAI registration for restaurants, cloud kitchens, cafes, and food traders.",
+     "link": "/services/fssai/",
+     "message": "Hi Saifi Tax, I need FSSAI Food License Registration."
+    },
+    {
+     "key": "trademark",
+     "title": "Trademark & Brand Protection",
+     "body": "Trademark search, TM application filing (24 hours), and objection reply to protect your brand name & logo.",
+     "link": "/services/trademark/",
+     "message": "Hi Saifi Tax, I need Trademark Registration for my brand."
+    },
+    {
+     "key": "iec",
+     "title": "Import Export Code (DGFT IEC)",
+     "body": "Lifetime IEC certificate & annual DGFT update for global exporters, importers, and Amazon global sellers.",
+     "link": "/services/import-export/",
+     "message": "Hi Saifi Tax, I need Import Export Code (IEC) Registration."
+    },
+    {
+     "key": "dsc",
+     "title": "Class-3 DSC, PAN & TAN",
+     "body": "Instant paperless Digital Signature Certificates (DSC) for e-Tenders, MCA, Income Tax, GST & firm PAN/TAN.",
+     "link": "/services/incorporation/",
+     "message": "Hi Saifi Tax, I need Class-3 Digital Signature (DSC) / PAN / TAN."
+    },
+    {
+     "key": "reports",
+     "title": "Project Reports & Loan Financials",
+     "body": "Projected Balance Sheet, P&L, and CMA Data preparation for Mudra Loan, CC Limit, and Business Loans.",
+     "link": "/services/accounting/",
+     "message": "Hi Saifi Tax, I need Balance Sheet / CMA Project Report for Bank Loan."
+    },
+    {
+     "key": "company",
+     "title": "Company, LLP & Partnership Setup",
+     "body": "End-to-end incorporation for Proprietorships, Partnership Deeds, LLPs, Private Limited & ROC filings.",
+     "link": "/services/incorporation/",
+     "message": "Hi Saifi Tax, I want to register a Partnership Firm / LLP / Pvt Ltd Company."
+    }
+   ]
+  },
+  "sections": {
+   "servicesNote": "* All prices are “Starting from”. Government fees and other third-party charges, where applicable, are charged separately at actuals.",
+   "servicesLine": "12 categories · 120+ services · 100% online across India",
+   "verticalsEyebrow": "Practice Verticals",
+   "verticalsTitle": "Full-Lifecycle Business Governance",
+   "verticalsBody": "From corporate inception to ongoing filings, every requirement handled under one roof. Click a service to view details.",
+   "certBadge": "Certificate Preview",
+   "certTitleA": "Preview Your",
+   "certTitleB": "Official Certificates",
+   "certBody": "Every registration ends with an official document. See what each certificate is, who issues it and what it unlocks, and ask us for a real sample before you pay.",
+   "certNote": "Real certificates delivered to our clients. Personal details are hidden to protect their privacy.",
+   "certSampleNote": "Ask on WhatsApp and we will share a real certificate we have delivered, with the client’s personal details hidden.",
+   "certSampleLabel": "Real sample on request",
+   "certSampleCta": "Ask for a Real Sample",
+   "certDelivered": "PDF on WhatsApp & Email",
+   "plansEyebrow": "End-to-End Tax & GST Solutions",
+   "plansTitleA": "Choose Your",
+   "plansTitleB": "Compliance Plan",
+   "plansBody": "100% paperless process. Share your documents on WhatsApp and let our experts handle your filings with zero notice risk.",
+   "reviewsEyebrow": "5.0 ★ Rated Tax Consultancy",
+   "reviewsTitleA": "Trusted by",
+   "reviewsTitleB": "Businesses & Taxpayers",
+   "reviewsBody": "From salaried professionals to growing startups in Dehradun and across India, here is what our clients say about our compliance support.",
+   "faqEyebrow": "Got Questions?",
+   "faqTitleA": "Frequently Asked",
+   "faqTitleB": "Compliance Questions",
+   "faqBody": "Everything you need to know about our online tax filing, security, and turnaround time.",
+   "finalBody": "100% paperless process. Share your documents on WhatsApp and let our experts handle your filings with zero notice risk.",
+   "finalLabel": "Talk to Expert",
+   "finalMessage": "Hi Saifi Tax Solutions, I would like to consult regarding my business taxation."
+  },
+  "local": {
+   "metaTitle": "Tax Consultant in Dehradun: ITR, GST & Company Setup | Saifi Tax",
+   "metaDescription": "Saifi Tax Solutions, IT Park, Sahastradhara Road, Dehradun. ITR filing from ₹499, GST registration from ₹1,499, company setup and tax notice replies. Call +91 9548932631.",
+   "eyebrow": "Your Trusted Financial Partner — Dehradun",
+   "titleA": "Tax Consultant in",
+   "titleB": "Dehradun",
+   "body": "GST, ITR & TDS filing, Company & MSME registrations, Comprehensive Tax Advisory — delivered 100% online with accuracy and transparency.",
+   "answer": "Saifi Tax Solutions is a tax and compliance consultancy at IT Park, Sahastradhara Road, Dehradun, Uttarakhand, India - 248001. It handles ITR filing, GST registration and returns, TDS, company and MSME registration and tax notice replies for clients in Dehradun and across India.",
+   "servicesTitle": "Popular services in Dehradun",
+   "popular": [
+    "ITR-1 — Salaried / Pension",
+    "ITR-3 / ITR-4 — Business & Freelancer",
+    "New GST Registration — Individual",
+    "GST Returns (GSTR-1 & GSTR-3B)",
+    "Income Tax Notice Reply & Assessment",
+    "GST Notice / Demand Reply",
+    "Private Limited Company (Pvt Ltd) + GST",
+    "New Udyam Registration",
+    "FSSAI Basic Registration (Petty Operator)",
+    "Trademark Registration (1 Class)",
+    "Full Bookkeeping",
+    "26Q — Non-Salary TDS Return"
+   ]
+  }
+ },
+ "lists": {
+  "services": [
+   {
+    "key": "gst",
+    "name": "GST Services",
+    "slug": "gst",
+    "tab": "GST",
+    "code": "GST",
+    "desc": "GST registration, return filing, amendments, refunds and notice replies.",
+    "from": "Starting from ₹499",
+    "items": [
+     {
+      "name": "New GST Registration — Individual",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "New GST Registration — Partnership",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "GST Returns (GSTR-1 & GSTR-3B)",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "GSTR-9 Annual Return",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "GSTR-9C Reconciliation Statement",
+      "price": "Starting from ₹3,499"
+     },
+     {
+      "name": "GST Cancellation / Surrender",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "GST Amendment (Core / Non-Core)",
+      "price": "Starting from ₹699"
+     },
+     {
+      "name": "LUT Application (Export)",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "GST Notice / Demand Reply",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "GST Refund Application",
+      "price": "Starting from ₹2,499"
+     }
+    ],
+    "keywords": "GST Services gst goods services tax gstin",
+    "seoTitle": "GST Registration & Return Filing in Dehradun",
+    "keyword": "GST registration and return filing",
+    "published": true,
+    "order": 0
+   },
+   {
+    "key": "itr",
+    "name": "Income Tax Return (ITR)",
+    "slug": "income-tax-return",
+    "tab": "ITR",
+    "code": "ITR",
+    "desc": "Income tax return filing for salaried people, businesses, professionals and NRIs.",
+    "from": "Starting from ₹399",
+    "items": [
+     {
+      "name": "ITR-1 — Salaried / Pension",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "ITR-2 — Salary + Capital Gains",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "ITR-3 / ITR-4 — Business & Freelancer",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "ITR — Audit Cases",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "PAN Card Application",
+      "price": "Starting from ₹399"
+     },
+     {
+      "name": "Updated Return (ITR-U) — Old Pending Years",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "NRI Income Tax Return Filing",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "Income Tax Notice Reply & Assessment",
+      "price": "Starting from ₹2,999"
+     },
+     {
+      "name": "Tax Computation & Planning",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Advance Tax Computation",
+      "price": "Starting from ₹799"
+     },
+     {
+      "name": "AIS / 26AS Reconciliation",
+      "price": "Starting from ₹699"
+     }
+    ],
+    "keywords": "Income Tax Return (ITR) itr income tax return pan",
+    "seoTitle": "ITR Filing in Dehradun: Salaried, Business & NRI",
+    "keyword": "income tax return filing",
+    "published": true,
+    "order": 1
+   },
+   {
+    "key": "tds",
+    "name": "TDS Services",
+    "slug": "tds",
+    "tab": "TDS",
+    "code": "TDS",
+    "desc": "TDS and TCS returns, Form 16, corrections and notice replies.",
+    "from": "Starting from ₹399",
+    "items": [
+     {
+      "name": "TAN Registration (New)",
+      "price": "Starting from ₹399"
+     },
+     {
+      "name": "24Q — Salary TDS Return",
+      "price": "Starting from ₹999/quarter"
+     },
+     {
+      "name": "26Q — Non-Salary TDS Return",
+      "price": "Starting from ₹999/quarter"
+     },
+     {
+      "name": "27EQ — TCS Return",
+      "price": "Starting from ₹999/quarter"
+     },
+     {
+      "name": "Form 16 / 16A Generation & Issuance",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "TDS Default / Short Deduction Rectification",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "TDS Refund Claim (Form 26B)",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Lower TDS Deduction Certificate (Sec 197)",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "15CA / 15CB for Foreign Remittances",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "TDS Notice & Demand Reply",
+      "price": "Starting from ₹2,499"
+     }
+    ],
+    "keywords": "TDS Services tds tcs tan",
+    "seoTitle": "TDS & TCS Return Filing, Form 16 and TAN Registration",
+    "keyword": "TDS return filing",
+    "published": true,
+    "order": 2
+   },
+   {
+    "key": "legal",
+    "name": "Legal Services",
+    "slug": "legal",
+    "tab": "Legal",
+    "code": "LGL",
+    "desc": "Help with tax appeals, demand notices and tax disputes.",
+    "from": "Starting from ₹4,999",
+    "items": [
+     {
+      "name": "Income Tax Litigation & Representation",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "GST Appeal Filing",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "CIT(A) Appeal Preparation",
+      "price": "Starting from ₹5,999"
+     },
+     {
+      "name": "ITAT (Tribunal) Appeal",
+      "price": "Starting from ₹9,999"
+     },
+     {
+      "name": "Demand Notice Reply (Income Tax)",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "Demand Notice Reply (GST)",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "Scrutiny Assessment Response",
+      "price": "Starting from ₹6,999"
+     },
+     {
+      "name": "Writ Petition / High Court Matter",
+      "price": "On Consultation"
+     },
+     {
+      "name": "Compounding Application",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "Stay Application — Tax Recovery",
+      "price": "Starting from ₹4,999"
+     }
+    ],
+    "keywords": "Legal Services legal appeal litigation notice scrutiny",
+    "seoTitle": "Tax Litigation, GST Appeals & Demand Notice Reply Services",
+    "keyword": "tax appeal and demand notice reply",
+    "published": true,
+    "order": 3
+   },
+   {
+    "key": "pf",
+    "name": "PF & ESIC",
+    "slug": "pf-esic",
+    "tab": "PF / ESIC",
+    "code": "PF",
+    "desc": "PF and ESIC registration, monthly challans, returns and employee compliance.",
+    "from": "Starting from ₹499",
+    "items": [
+     {
+      "name": "PF (EPFO) Registration",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "ESIC Registration",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Monthly PF Challan Filing",
+      "price": "Starting from ₹999/month"
+     },
+     {
+      "name": "Monthly ESIC Challan Filing",
+      "price": "Starting from ₹999/month"
+     },
+     {
+      "name": "PF Annual Return (Form 3A / 6A)",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "PF Withdrawal / Transfer Assistance",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "UAN Activation & KYC Update",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "PF / ESIC Inspection Support",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "PF Arrears Computation & Payment",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "ESIC IP Number & Card Assistance",
+      "price": "Starting from ₹499"
+     }
+    ],
+    "keywords": "PF & ESIC pf esic epfo provident fund uan",
+    "seoTitle": "PF & ESIC Registration, Monthly Challans and Returns",
+    "keyword": "PF and ESIC compliance",
+    "published": true,
+    "order": 4
+   },
+   {
+    "key": "tm",
+    "name": "Trade Mark",
+    "slug": "trademark",
+    "tab": "Trade Mark",
+    "code": "TM",
+    "desc": "Trademark registration, objection reply, copyright and design protection.",
+    "from": "Starting from ₹499",
+    "items": [
+     {
+      "name": "Trademark Registration (1 Class)",
+      "price": "Starting from ₹9,440"
+     },
+     {
+      "name": "Trademark Search & Availability Report",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "Trademark Objection Reply",
+      "price": "Starting from ₹2,999"
+     },
+     {
+      "name": "Trademark Renewal",
+      "price": "Starting from ₹999 + Govt Fee"
+     },
+     {
+      "name": "Trademark Assignment / Transfer",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "Copyright Registration",
+      "price": "Starting from ₹1,999 + Govt Fee"
+     },
+     {
+      "name": "Design Registration",
+      "price": "Starting from ₹1,999 + Govt Fee"
+     },
+     {
+      "name": "Geographical Indication (GI Tag)",
+      "price": "On Consultation"
+     },
+     {
+      "name": "Logo / Brand Protection Advisory",
+      "price": "Starting from ₹999"
+     }
+    ],
+    "keywords": "Trade Mark trademark trade mark tm brand logo copyright design",
+    "seoTitle": "Trademark Registration, Objection Reply & Copyright",
+    "keyword": "trademark registration",
+    "published": true,
+    "order": 5
+   },
+   {
+    "key": "inc",
+    "name": "Incorporation & Registration",
+    "slug": "incorporation",
+    "tab": "Incorporation",
+    "code": "INC",
+    "desc": "Company, LLP, OPC, partnership and proprietorship registration.",
+    "from": "Starting from ₹499",
+    "items": [
+     {
+      "name": "Private Limited Company (Pvt Ltd) + GST",
+      "price": "Starting from ₹11,999"
+     },
+     {
+      "name": "Limited Liability Partnership (LLP) + GST",
+      "price": "Starting from ₹10,999"
+     },
+     {
+      "name": "One Person Company (OPC)",
+      "price": "Starting from ₹999 + Govt Fee"
+     },
+     {
+      "name": "Section 8 Company (NGO)",
+      "price": "Starting from ₹4,999 + Govt Fee"
+     },
+     {
+      "name": "Partnership Firm — Partnership Deed",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "Sole Proprietorship Registration",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Producer Company Registration",
+      "price": "Starting from ₹7,999 + Govt Fee"
+     },
+     {
+      "name": "Nidhi Company Registration",
+      "price": "Starting from ₹9,999 + Govt Fee"
+     },
+     {
+      "name": "DSC (Digital Signature Certificate)",
+      "price": "Starting from ₹2,360"
+     },
+     {
+      "name": "DIN (Director Identification Number)",
+      "price": "Starting from ₹499"
+     }
+    ],
+    "keywords": "Incorporation & Registration incorporation company registration pvt ltd llp opc partnership proprietorship dsc din",
+    "seoTitle": "Company, LLP & OPC Registration in Dehradun",
+    "keyword": "company and LLP registration",
+    "published": true,
+    "order": 6
+   },
+   {
+    "key": "mca",
+    "name": "MCA / ROC Compliance",
+    "slug": "mca-roc",
+    "tab": "MCA",
+    "code": "MCA",
+    "desc": "Annual filings, director changes and ROC compliance for companies and LLPs.",
+    "from": "Starting from ₹499",
+    "items": [
+     {
+      "name": "AOC-4 — Annual Financial Statement Filing",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "MGT-7 / MGT-7A — Annual Return Filing",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "LLP Form 8 — Statement of Accounts",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "LLP Form 11 — Annual Return",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "Director Appointment / Resignation (DIR-12)",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Change of Registered Office (INC-22)",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "Share Allotment / Transfer (PAS-3 / SH-4)",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "Increase in Authorised Capital (SH-7)",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "Board Meeting Minutes & Resolutions",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Company Name Change (INC-24)",
+      "price": "Starting from ₹2,499"
+     }
+    ],
+    "keywords": "MCA / ROC Compliance mca roc annual filing company llp aoc mgt director",
+    "seoTitle": "MCA / ROC Compliance: AOC-4, MGT-7, LLP Form 8 & 11",
+    "keyword": "MCA and ROC annual filing",
+    "published": true,
+    "order": 7
+   },
+   {
+    "key": "ie",
+    "name": "Import Export (IEC)",
+    "slug": "import-export",
+    "tab": "Import / Export",
+    "code": "IEC",
+    "desc": "IEC registration, export benefits, LUT and foreign payment forms.",
+    "from": "Starting from ₹999",
+    "items": [
+     {
+      "name": "IEC Registration (Import Export Code)",
+      "price": "Starting from ₹1,999 + Govt Fee"
+     },
+     {
+      "name": "IEC Modification / Update",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "IEC Surrender / Cancellation",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "RCMC Registration (Export Council)",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "EPCG Licence Application",
+      "price": "On Consultation"
+     },
+     {
+      "name": "Advance Authorisation (DFIA)",
+      "price": "On Consultation"
+     },
+     {
+      "name": "RODTEP / MEIS Benefit Claims",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "GST LUT for Exporters",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "15CA / 15CB for Import Payments",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Export Invoice & Shipping Bill Guidance",
+      "price": "Starting from ₹999"
+     }
+    ],
+    "keywords": "Import Export (IEC) import export iec dgft rcmc epcg exporter",
+    "seoTitle": "IEC Registration, RCMC & Export Benefit Claims",
+    "keyword": "IEC registration",
+    "published": true,
+    "order": 8
+   },
+   {
+    "key": "acc",
+    "name": "Accounting & Bookkeeping",
+    "slug": "accounting",
+    "tab": "Accounting",
+    "code": "ACC",
+    "desc": "Bookkeeping, financial statements, payroll and project reports.",
+    "from": "Starting from ₹999",
+    "items": [
+     {
+      "name": "Full Bookkeeping",
+      "price": "Starting from ₹7,999"
+     },
+     {
+      "name": "Online Accounting (From)",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "Balance Sheet Preparation",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Project Report — 3 to 5 Years",
+      "price": "Starting from ₹4,999"
+     },
+     {
+      "name": "Project Report — 7 Years",
+      "price": "Starting from ₹6,999"
+     },
+     {
+      "name": "Profit & Loss Statement",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Payroll Processing & Salary Slips",
+      "price": "Starting from ₹1,999/month"
+     },
+     {
+      "name": "Bank Reconciliation Statement (BRS)",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Accounts Receivable / Payable Management",
+      "price": "Starting from ₹1,999/month"
+     },
+     {
+      "name": "Stock / Inventory Accounting",
+      "price": "Starting from ₹1,999/month"
+     },
+     {
+      "name": "Fixed Asset Register Maintenance",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Annual Accounts Finalization",
+      "price": "Starting from ₹2,999"
+     },
+     {
+      "name": "MIS Reports & Cash Flow Statements",
+      "price": "Starting from ₹1,999"
+     }
+    ],
+    "keywords": "Accounting & Bookkeeping accounting bookkeeping accounts balance sheet project report payroll",
+    "seoTitle": "Accounting & Bookkeeping Services in Dehradun",
+    "keyword": "accounting and bookkeeping",
+    "published": true,
+    "order": 9
+   },
+   {
+    "key": "msme",
+    "name": "MSME / Udyam Registration",
+    "slug": "msme-udyam",
+    "tab": "MSME",
+    "code": "MSME",
+    "desc": "Udyam registration, updates and government scheme support for small businesses.",
+    "from": "Starting from ₹299",
+    "items": [
+     {
+      "name": "New Udyam Registration",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "Udyam Update / Amendment",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "Udyam Certificate Download",
+      "price": "Starting from ₹299"
+     },
+     {
+      "name": "UAM to Udyam Migration",
+      "price": "Starting from ₹499"
+     },
+     {
+      "name": "NSIC Registration for Tenders",
+      "price": "Starting from ₹2,999"
+     },
+     {
+      "name": "GeM Portal Registration (Govt Marketplace)",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "CGTMSE Credit Guarantee Assistance",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Mudra Loan Application Support",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "PMEGP Loan Application",
+      "price": "Starting from ₹2,499"
+     },
+     {
+      "name": "MSME Samadhaan (Delayed Payment Claim)",
+      "price": "Starting from ₹999"
+     }
+    ],
+    "keywords": "MSME / Udyam Registration msme udyam nsic gem mudra pmegp cgtmse",
+    "seoTitle": "MSME / Udyam Registration in Dehradun, GeM & Mudra",
+    "keyword": "MSME and Udyam registration",
+    "published": true,
+    "order": 10
+   },
+   {
+    "key": "fssai",
+    "name": "FSSAI Food Licensing",
+    "slug": "fssai",
+    "tab": "FSSAI",
+    "code": "FSSAI",
+    "desc": "FSSAI basic, state and central licence, renewal and modifications.",
+    "from": "Starting from ₹999",
+    "items": [
+     {
+      "name": "FSSAI Basic Registration (Petty Operator)",
+      "price": "Starting from ₹999 + Govt Fee"
+     },
+     {
+      "name": "FSSAI State Licence",
+      "price": "Starting from ₹1,999 + Govt Fee"
+     },
+     {
+      "name": "FSSAI Central Licence",
+      "price": "Starting from ₹2,999 + Govt Fee"
+     },
+     {
+      "name": "FSSAI Licence Renewal",
+      "price": "Starting from ₹999 + Govt Fee"
+     },
+     {
+      "name": "FSSAI Modification / Amendment",
+      "price": "Starting from ₹999 + Govt Fee"
+     },
+     {
+      "name": "FSSAI Annual Return (Form D1)",
+      "price": "Starting from ₹999"
+     },
+     {
+      "name": "FSSAI Petitioner / Appeal Filing",
+      "price": "Starting from ₹1,999"
+     },
+     {
+      "name": "Food Safety Compliance Advisory",
+      "price": "Starting from ₹1,499"
+     },
+     {
+      "name": "Product Approval & Labelling Guidance",
+      "price": "Starting from ₹1,999"
+     }
+    ],
+    "keywords": "FSSAI Food Licensing fssai food licence license restaurant",
+    "seoTitle": "FSSAI Food Licence: Basic, State & Central Registration",
+    "keyword": "FSSAI food licence",
+    "published": true,
+    "order": 11
+   }
+  ],
+  "certificates": [
+   {
+    "key": "gst",
+    "name": "GST Registration Certificate",
+    "form": "Form GST REG-06",
+    "tone": "sky",
+    "service": "New GST Registration — Individual",
+    "issuer": "Goods and Services Tax Network (GST portal)",
+    "validity": "Valid until cancelled or surrendered",
+    "usedFor": [
+     "Collect GST and claim input tax credit",
+     "Sell across states and on e-commerce marketplaces",
+     "Open a current account in the business name"
+    ],
+    "cta": "Apply for GST Registration",
+    "preview": "none",
+    "published": true,
+    "order": 0
+   },
+   {
+    "key": "udyam",
+    "name": "Udyam (MSME) Registration Certificate",
+    "form": "Udyam Registration",
+    "tone": "emerald",
+    "service": "New Udyam Registration",
+    "issuer": "Ministry of MSME (Udyam Registration portal)",
+    "validity": "Permanent, no renewal needed",
+    "usedFor": [
+     "Priority-sector and collateral-free bank loans",
+     "Benefits in government tenders",
+     "Protection against delayed payments from buyers"
+    ],
+    "cta": "Apply for Udyam Registration",
+    "preview": "none",
+    "published": true,
+    "order": 1
+   },
+   {
+    "key": "itr",
+    "name": "ITR Acknowledgement (ITR-V)",
+    "form": "Assessment Year 2026-27",
+    "tone": "indigo",
+    "service": "ITR-1 — Salaried / Pension",
+    "issuer": "Income Tax Department (e-Filing portal)",
+    "validity": "Issued for every assessment year you file",
+    "usedFor": [
+     "Income proof for home, car and business loans",
+     "Visa applications and credit card limits",
+     "Claim refunds and carry forward losses"
+    ],
+    "cta": "File My ITR",
+    "preview": "none",
+    "published": true,
+    "order": 2
+   },
+   {
+    "key": "coi",
+    "name": "Certificate of Incorporation",
+    "form": "Private Limited Company",
+    "tone": "amber",
+    "service": "Private Limited Company (Pvt Ltd) + GST",
+    "issuer": "Registrar of Companies, Ministry of Corporate Affairs",
+    "validity": "Permanent, with yearly ROC filings",
+    "usedFor": [
+     "A separate legal identity with limited liability",
+     "Raise funding and issue shares",
+     "Open bank accounts and sign contracts as a company"
+    ],
+    "cta": "Register My Company",
+    "preview": "none",
+    "published": true,
+    "order": 3
+   },
+   {
+    "key": "fssai",
+    "name": "FSSAI Food Registration",
+    "form": "FSSAI Registration",
+    "tone": "emerald",
+    "service": "FSSAI Basic Registration (Petty Operator)",
+    "issuer": "Food Safety and Standards Authority of India (FoSCoS)",
+    "validity": "1 to 5 years, renewable",
+    "usedFor": [
+     "Legally run a restaurant, cloud kitchen or food shop",
+     "List on food delivery and grocery apps",
+     "Print the FSSAI number on your packaging"
+    ],
+    "cta": "Apply for FSSAI",
+    "preview": "none",
+    "published": true,
+    "order": 4
+   },
+   {
+    "key": "tm",
+    "name": "Trademark Registration Certificate",
+    "form": "Trade Marks Act, 1999",
+    "tone": "rose",
+    "service": "Trademark Registration (1 Class)",
+    "issuer": "Trade Marks Registry, Government of India",
+    "validity": "10 years, renewable",
+    "usedFor": [
+     "Exclusive rights to your brand name and logo",
+     "Use the ® symbol and act against copycats",
+     "Brand registry on online marketplaces"
+    ],
+    "cta": "Protect My Brand",
+    "preview": "none",
+    "published": true,
+    "order": 5
+   },
+   {
+    "key": "iec",
+    "name": "Import Export Code (IEC)",
+    "form": "DGFT IEC Certificate",
+    "tone": "sky",
+    "service": "IEC Registration (Import Export Code)",
+    "issuer": "Directorate General of Foreign Trade",
+    "validity": "Lifetime, with an update every April to June",
+    "usedFor": [
+     "Import and export goods or services",
+     "Receive foreign payments and export benefits",
+     "Sell abroad through global marketplace programmes"
+    ],
+    "cta": "Apply for IEC",
+    "preview": "none",
+    "published": true,
+    "order": 6
+   },
+   {
+    "key": "deed",
+    "name": "Partnership Deed",
+    "form": "Partnership Firm",
+    "tone": "indigo",
+    "service": "Partnership Firm — Partnership Deed",
+    "issuer": "Drafted by Saifi Tax Solutions, executed on stamp paper",
+    "validity": "For the life of the firm, amended when partners change",
+    "usedFor": [
+     "Apply for the firm’s PAN, GST and bank account",
+     "Records capital, profit share and partner duties",
+     "Prevents disputes between partners"
+    ],
+    "cta": "Draft My Partnership Deed",
+    "preview": "none",
+    "published": true,
+    "order": 7
+   }
+  ],
+  "articles": [
+   {
+    "builtin": "itr-basics",
+    "title": "ITR Filing in India: Who Should File & Documents Required",
+    "highlight": "Who Should File & Documents Required",
+    "slug": "itr-basics",
+    "category": "basics",
+    "tag": "ITR Guide",
+    "badge": "INCOME TAX GUIDE",
+    "coverText": "ITR",
+    "readTime": "5 Min Read",
+    "excerpt": "A simple and practical guide to Income Tax Return filing for salaried individuals, freelancers, and business owners.",
+    "intro": "A simple and practical guide to Income Tax Return filing for salaried individuals, freelancers, professionals and business owners.",
+    "answer": "Your ITR requirement depends on your income, income sources and other applicable conditions.",
+    "faqs": [],
+    "ctaKicker": "Consult Saifi Tax Experts",
+    "ctaTitle": "Need Professional Help with Your ITR?",
+    "ctaBody": "Share your income details with us and we'll ensure your return is filed accurately with maximum legal tax savings.",
+    "ctaLabel": "Discuss on WhatsApp",
+    "ctaMessage": "Hi Saifi Tax, I read your ITR Guide and need help filing my return.",
+    "floatMessage": "Hi Saifi Tax, I was reading your 'ITR Filing Basics' guide and need help filing my ITR.",
+    "metaTitle": "ITR Filing in India: Complete Guide | Saifi Tax Solutions",
+    "metaDescription": "A simple and practical guide to Income Tax Return filing for salaried individuals, freelancers, professionals and business owners in India.",
+    "cardTitle": "ITR Filing in India: Who Should File & Documents Required",
+    "cardCta": "Read Full Guide",
+    "relatedTag": "Basics",
+    "relatedTitle": "What is Income Tax Return (ITR) & Who Should File?",
+    "date": "2026-10-30T04:30:00.000Z",
+    "published": true,
+    "order": 0
+   },
+   {
+    "builtin": "itr-forms",
+    "title": "ITR-1, ITR-2, ITR-3 or ITR-4: Which ITR Form Should You File?",
+    "highlight": "Which ITR Form Should You File?",
+    "slug": "itr-forms",
+    "category": "forms",
+    "tag": "Form Selection",
+    "badge": "FORM SELECTION GUIDE",
+    "coverText": "ITR 1–4",
+    "readTime": "4 Min Read",
+    "excerpt": "Selecting the wrong form is the most common reason for defective returns. Find out which form applies to your exact income profile.",
+    "intro": "Selecting the wrong form is the most common reason for defective returns. Find out which form applies to your exact income profile to avoid tax notices.",
+    "answer": "Salary Income: ITR-1 or ITR-2. Capital Gains: ITR-2. Business / Profession: ITR-3 or ITR-4. Presumptive Income: ITR-4.",
+    "faqs": [],
+    "ctaKicker": "Avoid Defective Returns",
+    "ctaTitle": "Still confused about your ITR Form?",
+    "ctaBody": "Don't risk an Income Tax notice. Share your income sources with our experts and we'll tell you the exact form you need.",
+    "ctaLabel": "Help Me Choose My ITR",
+    "ctaMessage": "Hi Saifi Tax, Help Me Choose My ITR Form.",
+    "floatMessage": "Hi Saifi Tax, I read your 'ITR-1 to ITR-4 Forms' guide and want to know which form applies to me.",
+    "metaTitle": "Which ITR Form Should You File? (ITR-1 to 4) | Saifi Tax Solutions",
+    "metaDescription": "Confused between ITR-1, ITR-2, ITR-3, or ITR-4? Find out which Income Tax Return form applies to your exact income profile in India.",
+    "cardTitle": "ITR-1, 2, 3 or 4: Which ITR Form Should You File?",
+    "cardCta": "Read Full Guide",
+    "relatedTag": "ITR Forms",
+    "relatedTitle": "ITR-1 to ITR-4 Explained: Which Form Applies to You?",
+    "date": "2026-10-30T04:30:00.000Z",
+    "published": true,
+    "order": 1
+   },
+   {
+    "builtin": "itr-documents",
+    "title": "ITR Filing ke Liye Kaunse Documents Chahiye?",
+    "highlight": "Kaunse Documents Chahiye?",
+    "slug": "itr-documents",
+    "category": "checklist",
+    "tag": "Checklist",
+    "badge": "DOCUMENT CHECKLIST",
+    "coverText": "PAN + AIS",
+    "readTime": "6 Min Read",
+    "excerpt": "Stop scrambling for paperwork! Get the definitive, exact document checklist you need based on your specific income profile.",
+    "intro": "Stop scrambling for paperwork at the last minute! Having the right documents ready is 80% of the ITR filing battle. Here is your definitive, interactive checklist based on your exact income profile.",
+    "answer": "PAN Card, Aadhaar Card and Bank Details are required for every single taxpayer in India, plus the documents for your income profile.",
+    "faqs": [],
+    "ctaKicker": "Don't Miss Any Document",
+    "ctaTitle": "Ready to file your ITR safely?",
+    "ctaBody": "Skip the confusion. Message us on WhatsApp and get a personalized, exact document checklist for your specific business or salary profile.",
+    "ctaLabel": "Get Your ITR Document Checklist on WhatsApp",
+    "ctaMessage": "Hi Saifi Tax, I want to Get My ITR Document Checklist.",
+    "floatMessage": "Hi Saifi Tax, I checked your 'ITR Documents Checklist' and want to file my Income Tax Return.",
+    "metaTitle": "ITR Filing Documents: The Ultimate Checklist | Saifi Tax Solutions",
+    "metaDescription": "Stop scrambling at the last minute! Discover the exact documents you need for ITR filing in India based on your income profile (Salaried, Business, Freelancer, etc.).",
+    "cardTitle": "ITR Filing ke Liye Kaunse Documents Chahiye?",
+    "cardCta": "Get Checklist",
+    "relatedTag": "Checklist",
+    "relatedTitle": "Complete Documents Required for ITR Filing in India",
+    "date": "2026-10-30T04:30:00.000Z",
+    "published": true,
+    "order": 2
+   },
+   {
+    "builtin": "itr-comparison",
+    "title": "AIS, Form 26AS and Form 16: What Is the Difference?",
+    "highlight": "What Is the Difference?",
+    "slug": "itr-comparison",
+    "category": "reconciliation",
+    "tag": "Reconciliation",
+    "badge": "DOCUMENT RECONCILIATION",
+    "coverText": "16 · 26AS · AIS",
+    "readTime": "7 Min Read",
+    "excerpt": "Understand the exact difference between these crucial tax documents to avoid mismatches and defective return notices.",
+    "intro": "When you file your Income Tax Return, you encounter these three crucial documents. Understanding the difference can help you check your income details properly and drastically reduce the chances of errors.",
+    "answer": "Rule of Thumb: Form 16 = Salary | Form 26AS = Tax Credits | AIS = All Financial Activity",
+    "faqs": [
+     {
+      "q": "Is Form 16 the same as AIS?",
+      "a": "No. Form 16 is a salary TDS certificate provided directly by your employer. AIS is a broader information statement generated by the Income Tax Department containing your overall financial data."
+     },
+     {
+      "q": "Is Form 26AS the same as AIS?",
+      "a": "No. Form 26AS mainly contains TDS and TCS-related information, while AIS provides much broader information including property, stocks, and high-value transactions."
+     },
+     {
+      "q": "Should salaried employees check AIS?",
+      "a": "Yes, absolutely. Salaried employees often have bank interest or mutual fund transactions apart from salary. Reviewing AIS helps identify these additional reported incomes to avoid mismatch notices."
+     },
+     {
+      "q": "What should I do if Form 16 and Form 26AS do not match?",
+      "a": "If the TDS shown in Form 16 is not visible in Form 26AS, do not claim it immediately. Contact your employer or deductor to clarify why the TDS has not been reflected in the government portal."
+     }
+    ],
+    "disclaimer": "This article is for general information only. The documents and information required for ITR filing may vary depending on the taxpayer's income sources and circumstances. Always review the applicable records for the relevant assessment year before filing your return.",
+    "ctaKicker": "EXPERT RECONCILIATION",
+    "ctaTitle": "Mismatches in your tax documents?",
+    "ctaBody": "Don't guess your tax figures. Let Saifi Tax Solutions professionally reconcile your Form 16, 26AS, and AIS for an error-free ITR filing.",
+    "ctaLabel": "Consult Experts on WhatsApp",
+    "ctaMessage": "Hi Saifi Tax, I need help reconciling my Form 16 and AIS for ITR.",
+    "floatMessage": "Hi Saifi Tax, I need help reconciling my Form 16, Form 26AS, and AIS for ITR filing.",
+    "metaTitle": "AIS, Form 26AS and Form 16: What Is the Difference? | Saifi Tax",
+    "metaDescription": "Understand the exact difference between Form 16, Form 26AS, and AIS. Learn how to reconcile your tax documents and avoid defective return notices in India.",
+    "cardTitle": "AIS, Form 26AS & Form 16: What Is the Difference?",
+    "cardCta": "Read Full Guide",
+    "relatedTag": "Reconciliation",
+    "relatedTitle": "AIS vs Form 26AS vs Form 16: Key Differences",
+    "date": "2026-10-30T04:30:00.000Z",
+    "published": true,
+    "order": 3
+   }
+  ],
+  "reviews": [
+   {
+    "quote": "My AIS and Form 26AS had a huge mismatch because of stock market and FD interest entries. Saifi Tax Solutions reconciled everything smoothly and filed my ITR without a single notice.",
+    "name": "Rohit Sharma",
+    "initials": "RS",
+    "role": "IT Professional • Salaried & Stocks ITR",
+    "published": true,
+    "order": 0
+   },
+   {
+    "quote": "Got my new GST Registration and Udyam certificate in Dehradun completely online on WhatsApp. Didn't have to visit any office, and their monthly GSTR-1 & 3B filing reminder system is super reliable.",
+    "name": "Amanpreet Kohli",
+    "initials": "AK",
+    "role": "Retail Business Owner • Dehradun",
+    "published": true,
+    "order": 1
+   },
+   {
+    "quote": "As a freelancer, I was confused between ITR-3 and ITR-4 presumptive taxation. Their expert guided me properly, saved a lot of legitimate tax under Section 44ADA, and handled everything within 24 hours.",
+    "name": "Neha Verma",
+    "initials": "NV",
+    "role": "Independent Consultant • ITR-4 Filing",
+    "published": true,
+    "order": 2
+   }
+  ],
+  "plans": [
+   {
+    "key": "salaried",
+    "kicker": "For Individuals",
+    "title": "Salaried & Investor ITR",
+    "body": "Complete return preparation for employees with Form 16, bank interest, mutual funds, or stock market gains.",
+    "list": [
+     "Form 16, 26AS & AIS Reconciliation",
+     "Old vs New Regime Tax Saving Check",
+     "Capital Gains & Dividend Reporting",
+     "Maximum Legitimate Refund Claim"
+    ],
+    "cta": "File Salaried ITR",
+    "message": "Hi Saifi Tax, I want to file my Salaried / Capital Gains ITR. Please share the process and fee.",
+    "published": true,
+    "order": 0
+   },
+   {
+    "key": "business",
+    "kicker": "Sec 44AD / 44ADA",
+    "title": "Business & Freelancer ITR",
+    "body": "Tailored for shop owners, traders, doctors, consultants, and freelancers seeking smart tax optimization.",
+    "list": [
+     "ITR-3 / ITR-4 (Sugam) Filing",
+     "50% Presumptive Tax Benefit (44ADA)",
+     "P&L and Balance Sheet Computation",
+     "Loan & Visa Ready ITR-V Copy"
+    ],
+    "cta": "Book Business ITR",
+    "message": "Hi Saifi Tax, I need help with Business / Freelancer ITR (ITR-3 or ITR-4). Please guide me.",
+    "featured": "Most Popular",
+    "published": true,
+    "order": 1
+   },
+   {
+    "key": "gst-msme",
+    "kicker": "New Business Setup",
+    "title": "GST & MSME Registration",
+    "body": "Get your official GSTIN and Udyam certificate quickly without visiting any government office.",
+    "list": [
+     "New GST Application in 3–5 Days",
+     "Accurate HSN / SAC Code Mapping",
+     "Rent Agreement / NOC Format Help",
+     "MSME / Udyam Certificate Included"
+    ],
+    "cta": "Apply for New GST",
+    "message": "Hi Saifi Tax, I want to apply for New GST and MSME Registration. Please share details.",
+    "published": true,
+    "order": 2
+   },
+   {
+    "key": "gst-returns",
+    "kicker": "Monthly Retainer",
+    "title": "GST Returns & Notice Care",
+    "body": "Dedicated monthly compliance partner for your business to prevent late fees and GST notices.",
+    "list": [
+     "Monthly / Quarterly GSTR-1 & 3B",
+     "GSTR-2B Input Tax Credit (ITC) Match",
+     "Income Tax / GST Notice Drafting",
+     "Dedicated WhatsApp Priority Support"
+    ],
+    "cta": "Get Monthly Support",
+    "message": "Hi Saifi Tax, I need Monthly GST Return Filing / Tax Notice assistance.",
+    "published": true,
+    "order": 3
+   }
+  ],
+  "faqs": [
+   {
+    "key": "online",
+    "q": "Do I need to visit your office in Dehradun, or is the process 100% online?",
+    "a": "Our entire workflow is **100% paperless and online**. Whether you are in Dehradun, Noida, Delhi, Mumbai, or anywhere in India, you can simply share your documents via WhatsApp or Email, review your computation draft on your phone, and receive your official ITR-V or GST certificate without stepping out.",
+    "page": "home",
+    "published": true,
+    "order": 0
+   },
+   {
+    "key": "reconcile",
+    "q": "Why should I reconcile AIS and Form 26AS before filing my Income Tax Return?",
+    "a": "The Income Tax Department's automated system cross-checks your ITR against your **Annual Information Statement (AIS)** and **Form 26AS**. Even a small mismatch in bank interest, dividends, stock trading, or TDS can trigger an automated Section 139(9) Defective Return or Section 143(1) demand notice. We reconcile all three documents before filing.",
+    "page": "home",
+    "published": true,
+    "order": 1
+   },
+   {
+    "key": "timeline",
+    "q": "How long does it take to file an ITR or get a new GST Registration?",
+    "a": "**Income Tax Returns (ITR)** are typically audited, prepared, and filed within **4 to 24 hours** of receiving complete documents. **New GST Registration** applications are filed within 24 hours, and government GSTIN allotment generally takes **3 to 5 working days** subject to Aadhaar authentication.",
+    "page": "home",
+    "published": true,
+    "order": 2
+   },
+   {
+    "key": "privacy",
+    "q": "Is my financial data and PAN/Aadhaar information kept confidential?",
+    "a": "Yes, 100%. We follow strict client data privacy protocols. Your financial statements, Form 16, and identity documents are only used for official government portal filings and are never shared with any third-party marketers or external agencies.",
+    "page": "home",
+    "published": true,
+    "order": 3
+   },
+   {
+    "key": "notice",
+    "q": "Can you help if I already filed my ITR elsewhere and received a tax notice?",
+    "a": "Absolutely. Even if someone else filed your original return, our Notice Defense Desk can review your intimation order, prepare a Revised Return (u/s 139(5)), Rectification Request (u/s 154), or Defective Return response (u/s 139(9)) to resolve the discrepancy.",
+    "page": "home",
+    "published": true,
+    "order": 4
+   },
+   {
+    "key": "local-1",
+    "q": "Where is Saifi Tax Solutions located in Dehradun?",
+    "a": "Saifi Tax Solutions is at IT Park, Sahastradhara Road, Dehradun, Uttarakhand, India - 248001. You can reach the team on +91 9548932631 by phone or WhatsApp, or at taxmateassociates06@gmail.com.",
+    "page": "local",
+    "published": true,
+    "order": 100
+   },
+   {
+    "key": "local-2",
+    "q": "How much does ITR filing cost in Dehradun?",
+    "a": "At Saifi Tax Solutions, ITR-1 for salaried people starts from ₹499, ITR-3 / ITR-4 for business and freelancers from ₹999, ITR-2 for salary with capital gains from ₹1,499, and audit cases from ₹4,999.",
+    "page": "local",
+    "published": true,
+    "order": 101
+   },
+   {
+    "key": "local-3",
+    "q": "How long does GST registration take in Dehradun?",
+    "a": "New GST Registration applications are filed within 24 hours, and government GSTIN allotment generally takes 3 to 5 working days subject to Aadhaar authentication. Fees start from ₹1,499 for individuals.",
+    "page": "local",
+    "published": true,
+    "order": 102
+   },
+   {
+    "key": "local-4",
+    "q": "Do I need to visit the Dehradun office?",
+    "a": "Our entire workflow is 100% paperless and online. Whether you are in Dehradun, Noida, Delhi, Mumbai, or anywhere in India, you can simply share your documents via WhatsApp or Email, review your computation draft on your phone, and receive your official ITR-V or GST certificate without stepping out.",
+    "page": "local",
+    "published": true,
+    "order": 103
+   },
+   {
+    "key": "local-5",
+    "q": "Can you help with an Income Tax or GST notice in Dehradun?",
+    "a": "Absolutely. Even if someone else filed your original return, our Notice Defense Desk can review your intimation order, prepare a Revised Return (u/s 139(5)), Rectification Request (u/s 154), or Defective Return response (u/s 139(9)) to resolve the discrepancy.",
+    "page": "local",
+    "published": true,
+    "order": 104
+   }
+  ],
+  "verticals": [
+   {
+    "key": "itr",
+    "code": "ITR",
+    "title": "Income Tax Advisory (ITR)",
+    "body": "Tailored tax returns for salaried individuals, consultants, HUFs, and corporate entities. Full deductions review under old and new tax regimes.",
+    "link": "/services/income-tax-return/",
+    "detailTitle": "Income Tax Advisory",
+    "documents": [
+     {
+      "title": "Identity Proofs",
+      "text": "PAN Card & Aadhaar Card."
+     },
+     {
+      "title": "Income Proof",
+      "text": "Form 16/16A (if salaried) or Business invoices."
+     },
+     {
+      "title": "Bank Details",
+      "text": "Bank Statements for the full financial year."
+     },
+     {
+      "title": "Investment Proofs",
+      "text": "LIC, PPF, Mutual Funds, or AIS/TIS details."
+     }
+    ],
+    "benefits": [
+     {
+      "title": "Maximum Deductions",
+      "text": "Expert review under Old vs New regime to minimize tax liability."
+     },
+     {
+      "title": "Avoid Penalties",
+      "text": "Error-free computation prevents costly IT department notices."
+     },
+     {
+      "title": "Loan Approvals",
+      "text": "A properly audited ITR accelerates business and home loan approvals."
+     }
+    ],
+    "cta": "Proceed with ITR Filing",
+    "message": "Hi Saifi Tax, I have the documents ready and want to start my ITR filing.",
+    "published": true,
+    "order": 0
+   },
+   {
+    "key": "gst",
+    "code": "GST",
+    "title": "GST Compliance & Filing",
+    "body": "Complete end-to-end GST management. Registrations, periodic return preparations (GSTR-1, 3B, 9), and input tax credit (ITC) reconciliation.",
+    "link": "/services/gst/",
+    "detailTitle": "GST Compliance & Filing",
+    "documents": [
+     {
+      "title": "Identity",
+      "text": "Applicant's PAN Card & Aadhaar Card."
+     },
+     {
+      "title": "Address Proof",
+      "text": "Latest Electricity Bill or Property Tax Receipt."
+     },
+     {
+      "title": "Premises",
+      "text": "Rent Agreement & NOC from owner (if rented)."
+     },
+     {
+      "title": "Banking",
+      "text": "Cancelled Cheque or Bank Statement showing name."
+     }
+    ],
+    "benefits": [
+     {
+      "title": "ITC Reconciliation",
+      "text": "We accurately match GSTR 2B vs Purchase records to claim maximum Input Tax Credit."
+     },
+     {
+      "title": "Legal Expansion",
+      "text": "Allows you to legally sell across different states in India and on e-commerce platforms."
+     },
+     {
+      "title": "E-Way Bill Support",
+      "text": "Complete guidance on generating e-way bills and e-invoicing for seamless logistics."
+     }
+    ],
+    "cta": "Proceed with GST Services",
+    "message": "Hi Saifi Tax, I have the documents ready and need assistance with GST.",
+    "published": true,
+    "order": 1
+   },
+   {
+    "key": "inc",
+    "code": "MCA",
+    "title": "MCA & Corporate Law",
+    "body": "Turnkey legal structuring for companies and firms across India. Fast-track SPICe+ MCA filing with dedicated DIN and digital signatures.",
+    "link": "/services/incorporation/",
+    "detailTitle": "MCA & Corporate Law",
+    "documents": [
+     {
+      "title": "Director ID",
+      "text": "PAN & Aadhaar of all proposed Directors."
+     },
+     {
+      "title": "Address Proofs",
+      "text": "Recent Bank Statement / Mobile Bill of Directors."
+     },
+     {
+      "title": "Registered Office",
+      "text": "Electricity bill of office premises & Owner's NOC."
+     },
+     {
+      "title": "Photographs",
+      "text": "Passport size photos for DSC (Digital Signature) creation."
+     }
+    ],
+    "benefits": [
+     {
+      "title": "Limited Liability",
+      "text": "Protects your personal assets from business risks and debts."
+     },
+     {
+      "title": "Funding Access",
+      "text": "A registered Pvt Ltd or LLP structure is mandatory for raising Angel or VC funding."
+     },
+     {
+      "title": "Brand Trust",
+      "text": "Being registered with the MCA dramatically increases credibility among clients and vendors."
+     }
+    ],
+    "cta": "Proceed with Incorporation",
+    "message": "Hi Saifi Tax, I have the documents ready and want to Incorporate my Company.",
+    "published": true,
+    "order": 2
+   }
+  ]
+ }
+}

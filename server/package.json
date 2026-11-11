@@ -1,0 +1,39 @@
+{
+  "name": "saifi-server",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website management API for Saifi Tax Solutions",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "NODE_ENV=production node src/index.js",
+    "build": "echo \"API has no build step\"",
+    "seed": "node src/scripts/seed.js",
+    "create-admin": "node src/scripts/create-admin.js",
+    "reset-password": "node src/scripts/reset-password.js",
+    "check": "node src/scripts/check-setup.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.11.0",
+    "compression": "^1.8.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.4",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.12.1",
+    "multer": "^2.5.0",
+    "sanitize-html": "^2.18.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0"
+  }
+}
