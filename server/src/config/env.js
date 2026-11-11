@@ -58,6 +58,16 @@ const env = {
   MAX_UPLOAD_MB: int('MAX_UPLOAD_MB', 25),
 };
 
+// Cloudinary's single "API environment variable" (cloudinary://KEY:SECRET@CLOUD) works too.
+const cloudUrl = /^cloudinary:\/\/([^:]+):([^@]+)@(.+)$/.exec(str('CLOUDINARY_URL'));
+if (cloudUrl) {
+  env.CLOUDINARY_API_KEY ||= decodeURIComponent(cloudUrl[1]);
+  env.CLOUDINARY_API_SECRET ||= decodeURIComponent(cloudUrl[2]);
+  env.CLOUDINARY_CLOUD_NAME ||= cloudUrl[3].replace(/[/?].*$/, '');
+} else if (str('CLOUDINARY_URL')) {
+  problems.push('CLOUDINARY_URL must look like cloudinary://API_KEY:API_SECRET@CLOUD_NAME (copy it from the Cloudinary dashboard)');
+}
+
 env.cloudinary = Boolean(env.CLOUDINARY_CLOUD_NAME && env.CLOUDINARY_API_KEY && env.CLOUDINARY_API_SECRET);
 env.allowedOrigins = [...new Set([env.CLIENT_URL, ...env.CORS_ORIGINS].filter(Boolean))];
 if (!isProd) env.allowedOrigins.push('http://localhost:5173', 'http://localhost:4173', 'http://127.0.0.1:5173', 'http://127.0.0.1:4173');
@@ -70,7 +80,7 @@ if (!env.JWT_SECRET) {
   problems.push('JWT_SECRET must be at least 32 characters long');
 }
 if (isProd && !env.CLIENT_URL) problems.push('CLIENT_URL is missing — set it to the website address, e.g. https://saifitaxsolutions.site');
-if (isProd && !env.cloudinary) problems.push('CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET are required in production');
+if (isProd && !env.cloudinary) problems.push('Cloudinary is required in production: set CLOUDINARY_URL, or CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET');
 if (!['lax', 'none', 'strict'].includes(env.COOKIE_SAMESITE)) problems.push('COOKIE_SAMESITE must be "lax", "strict" or "none"');
 if (env.CLIENT_URL && !/^https?:\/\//.test(env.CLIENT_URL)) problems.push('CLIENT_URL must start with https:// (or http:// for local development)');
 if (env.DEPLOY_HOOK_URL && !/^https:\/\//.test(env.DEPLOY_HOOK_URL)) problems.push('DEPLOY_HOOK_URL must be an https:// address');

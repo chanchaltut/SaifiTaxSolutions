@@ -6,10 +6,9 @@ dist
 # Content saved from the API before each build (client/scripts/fetch-content.mjs)
 client/src/generated/
 
-# Secrets and local photo uploads
+# Secrets and local photo uploads. Env files, including the examples, are never committed.
 .env
 .env.*
-!.env.example
 server/uploads/
 
 # Never commit assistant notes
