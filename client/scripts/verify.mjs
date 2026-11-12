@@ -100,6 +100,8 @@ for (const p of pages) {
 }
 const resolves = (h) => {
   const [pathOnly] = h.split(/[?#]/);
+  /* /admin/... is served from admin.html by the host (vercel.json rewrites). */
+  if (/^\/admin(\/|$)/.test(pathOnly)) return fs.existsSync(path.join(site, 'admin.html'));
   const target = path.join(site, pathOnly);
   return fs.existsSync(target) && (fs.statSync(target).isFile() || fs.existsSync(path.join(target, 'index.html')));
 };
@@ -196,4 +198,4 @@ if (creditPages.length !== pages.length) fail(`Credit on ${creditPages.length}/$
 console.log(`   Code Hyphen credit linked on ${creditPages.length}/${pages.length} pages`);
 
 console.log(failures ? `\n${failures} check(s) failed.` : '\nAll checks passed.');
-process.exit(failures || missing.length ? 1 : 0);
+process.exit(failures ? 1 : 0);

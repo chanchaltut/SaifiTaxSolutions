@@ -70,6 +70,8 @@ export default function Footer() {
               <li><Link to="/about/">About</Link></li>
               <li><Link to="/faq/">FAQ</Link></li>
               <li><Link to="/contact/">Contact</Link></li>
+              {/* A plain link: the admin panel is its own app, not a page of this site. */}
+              <li><a href="/admin/" rel="nofollow">Team Login</a></li>
             </ul>
           </div>
         </div>
