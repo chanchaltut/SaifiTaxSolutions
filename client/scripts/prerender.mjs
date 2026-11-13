@@ -10,7 +10,7 @@ import { NodeHtmlMarkdown } from 'node-html-markdown';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const client = path.join(root, 'dist/client');
 const out = path.join(root, 'dist/site');
-const SITE = 'https://saifitaxsolutions.site';
+const SITE = 'https://www.saifitaxsolutions.site';
 
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(client, out, { recursive: true });

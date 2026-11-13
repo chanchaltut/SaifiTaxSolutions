@@ -28,7 +28,7 @@ const updatedLabel = new Date(`${updated}T12:00:00Z`).toLocaleDateString('en-GB'
 export const SITE = {
   name: s.name,
   short: s.short,
-  url: 'https://saifitaxsolutions.site',
+  url: 'https://www.saifitaxsolutions.site',
   phoneDisplay: s.phone,
   phoneE164,
   phoneSchema: `+91-${local10}`,

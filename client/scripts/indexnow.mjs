@@ -5,7 +5,7 @@
  * Run after a production deploy:  npm run indexnow
  * The key file public/d2449e27c7c0df535fdc1079609dd694.txt must stay deployed at the site root.
  */
-const SITE = 'https://saifitaxsolutions.site';
+const SITE = 'https://www.saifitaxsolutions.site';
 const KEY = 'd2449e27c7c0df535fdc1079609dd694';
 
 const sitemap = await fetch(`${SITE}/sitemap.xml`).then((r) => {

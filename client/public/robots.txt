@@ -54,7 +54,7 @@ User-agent: cohere-ai
 Allow: /
 
 # Plain-text summaries for answer engines:
-# https://saifitaxsolutions.site/llms.txt
-# https://saifitaxsolutions.site/llms-full.txt
+# https://www.saifitaxsolutions.site/llms.txt
+# https://www.saifitaxsolutions.site/llms-full.txt
 
-Sitemap: https://saifitaxsolutions.site/sitemap.xml
+Sitemap: https://www.saifitaxsolutions.site/sitemap.xml

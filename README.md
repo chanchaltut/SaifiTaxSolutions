@@ -18,7 +18,7 @@ The built-in content lives in `client/src/content/defaults.json`. The site falls
 
 ## Website management (`/admin`)
 
-The firm's staff manage the website at `https://saifitaxsolutions.site/admin`, from a phone or a computer, in plain English:
+The firm's staff manage the website at `https://www.saifitaxsolutions.site/admin`, from a phone or a computer, in plain English:
 
 | Area in the panel | What they can change |
 | --- | --- |
@@ -68,7 +68,7 @@ Every upload is checked from its contents (not its name), turned upright, stripp
 | 2 | **Cloudinary** | *Dashboard* shows Cloud name, API Key, API Secret. Keep *Settings → Security → Strict transformations* **off** (sizes and crops are made on request). Switch **on** *Allow delivery of PDF and ZIP files* (certificate PDFs; new accounts block PDFs). | `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` → Render |
 | 3 | **Render** | *New → Blueprint* → this repository (`render.yaml`, service `saifi-api`). *Starter* keeps it awake; *Free* works but sleeps after 15 minutes (the first admin load then takes about a minute). `JWT_SECRET` is generated for you. | Render address like `saifi-api.onrender.com` |
 | 4 | **Domain DNS** | **CNAME** `api` → `saifi-api.onrender.com`. In Render → *Settings → Custom Domains* add `api.saifitaxsolutions.site`. | API address: `https://api.saifitaxsolutions.site` |
-| 5 | **Render → Environment** | `CLIENT_URL` = `https://saifitaxsolutions.site` · `CORS_ORIGINS` = `https://www.saifitaxsolutions.site` (plus any Vercel preview URL you want to test the admin on) · `PUBLIC_URL` = `https://api.saifitaxsolutions.site` | Save → Render redeploys |
+| 5 | **Render → Environment** | `CLIENT_URL` = `https://www.saifitaxsolutions.site` · `CORS_ORIGINS` = `https://saifitaxsolutions.site` (plus any Vercel preview URL you want to test the admin on) · `PUBLIC_URL` = `https://api.saifitaxsolutions.site` | Save → Render redeploys |
 | 6 | **Your computer** | `cd server && npm install`, copy `.env.example` to `.env`, paste the **same** `MONGODB_URI` and Cloudinary keys, then `npm run seed` (copies the current website content into the database), `npm run create-admin` (your owner login) and `npm run check` (every line should show ✓). | An owner account for `/admin` |
 | 7 | **Vercel** | *Settings → General → Root Directory* = `client`. *Environment Variables*: `VITE_API_URL` = `https://api.saifitaxsolutions.site`. Node.js 22. Redeploy. | The site now builds from the database |
 | 8 | **Vercel → Settings → Git → Deploy Hooks** | Create a hook named `content` for branch `main` and copy the URL. | `DEPLOY_HOOK_URL` → Render. Edits now publish by themselves |

@@ -144,10 +144,10 @@ for (const p of pages) {
     if (descriptions.has(d)) fail(`Duplicate description on ${p.rel} and ${descriptions.get(d)}`);
     titles.set(t, p.rel);
     descriptions.set(d, p.rel);
-    const expected = `https://saifitaxsolutions.site/${p.rel.replace(/index\.html$/, '')}`;
+    const expected = `https://www.saifitaxsolutions.site/${p.rel.replace(/index\.html$/, '')}`;
     if (canonical !== expected) fail(`${p.rel}: canonical ${canonical} expected ${expected}`);
     const og = (p.html.match(/<meta property="og:image" content="([^"]*)"/) || [])[1];
-    const ogPath = og && path.join(site, og.replace('https://saifitaxsolutions.site', ''));
+    const ogPath = og && path.join(site, og.replace('https://www.saifitaxsolutions.site', ''));
     if (!ogPath || !fs.existsSync(ogPath)) fail(`${p.rel}: og:image missing on disk: ${og}`);
   }
 
@@ -177,7 +177,7 @@ console.log('\n4. Crawl and answer-engine files');
 const sitemap = fs.readFileSync(path.join(site, 'sitemap.xml'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const loc of locs) {
-  const f = path.join(site, loc.replace('https://saifitaxsolutions.site', ''), 'index.html');
+  const f = path.join(site, loc.replace('https://www.saifitaxsolutions.site', ''), 'index.html');
   if (!fs.existsSync(f)) fail(`Sitemap URL has no page: ${loc}`);
 }
 for (const f of ['robots.txt', 'llms.txt', 'llms-full.txt', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'manifest.webmanifest', '404.html']) {
