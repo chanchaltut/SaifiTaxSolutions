@@ -123,6 +123,9 @@ const orgCore = {
     : {}),
   areaServed: [
     { '@type': 'City', name: 'Dehradun' },
+    /* Neighbouring towns and the district, so nearby searches resolve to this office. */
+    ...['Mussoorie', 'Rishikesh', 'Haridwar', 'Roorkee', 'Vikasnagar', 'Doiwala'].map((name) => ({ '@type': 'City', name })),
+    { '@type': 'AdministrativeArea', name: 'Dehradun district' },
     { '@type': 'State', name: 'Uttarakhand' },
     { '@type': 'Country', name: 'India' },
   ],
